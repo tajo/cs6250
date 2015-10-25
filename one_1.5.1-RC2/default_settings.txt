@@ -90,8 +90,9 @@ Events1.class = MessageEventGenerator
 Events1.interval = 25,35
 # Message sizes (500kB - 1MB)
 Events1.size = 500k,1M
-# range of message source/destination addresses
-Events1.hosts = 0,126
+# range of message source/destination addresses (# addresses must be <=
+# total # of hosts across all groups)
+Events1.hosts = 0,119
 # Message ID prefix
 Events1.prefix = M
 
