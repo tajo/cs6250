@@ -1,0 +1,139 @@
+#
+# Default settings for the simulation
+#
+
+## Scenario settings
+Scenario.name = [simulation1;simulation2;simulation3]
+
+Scenario.simulateConnections = true
+Scenario.updateInterval = 1
+# 10800s == 3h
+Scenario.endTime = 10800
+
+# "Bluetooth" interface for all nodes
+btInterface.type = SimpleBroadcastInterface
+# Transmit speed of 2 Mbps = 250kBps
+btInterface.transmitSpeed = 250k
+btInterface.transmitRange = 10
+
+# High speed, long range, interface for group 1 and 4
+highspeedInterface.type = SimpleBroadcastInterface
+highspeedInterface.transmitSpeed = 10M
+highspeedInterface.transmitRange = 1000
+
+# Define 4 different node groups
+Scenario.nrofHostGroups = 4
+
+# Common settings for all groups
+Group.movementModel = ShortestPathMapBasedMovement
+Group.router = [EpidemicRouter;ProphetRouter;SprayAndWaitRouter]
+Group.bufferSize = 5M
+Group.waitTime = 0, 120
+# All nodes have the bluetooth interface
+Group.nrofInterfaces = 1
+Group.interface1 = btInterface
+# Walking speeds
+Group.speed = 0.5, 1.5
+# Message TTL of 300 minutes (5 hours)
+Group.msgTtl = 300
+Group.nrofHosts = 40
+
+# group1 stationary specific settings
+Group1.movementModel = StationaryMovement
+Group1.nrofInterfaces = 1
+Group1.interface1 = highspeedInterface
+Group1.nrofHosts = 1
+Group1.nodeLocation =12000, 8000
+Group1.groupID = z
+Group1.bufferSize = 1G
+Group1.speed = 0,0
+
+# group2 specific settings
+Group2.groupID = c
+# cars can drive only on roads
+Group2.okMaps = 1
+# 10-50 km/h
+Group2.speed = 2.7, 13.9
+
+# group of pedestrians
+Group3.groupID = w
+
+# The Tram groups
+Group4.groupID = t
+Group4.bufferSize = 50M
+Group4.waitTime = 10, 30
+Group4.speed = 7, 10
+Group4.nrofHosts = 8
+Group4.nrofInterfaces = 2
+Group4.interface1 = btInterface
+Group4.interface2 = highspeedInterface
+
+
+## Message creation parameters
+# How many event generators
+Events.nrof = 1
+# Class of the first event generator
+Events1.class = MessageEventGenerator
+# (following settings are specific for the MessageEventGenerator class)
+# Creation interval in seconds (one new message every 25 to 35 seconds)
+Events1.interval = 25,35
+# Message sizes (500kB - 1MB)
+Events1.size = 500k,1M
+# range of message source/destination addresses (# addresses must be <=
+# total # of hosts across all groups)
+Events1.hosts = 0,88
+# Message ID prefix
+Events1.prefix = M
+
+
+## Movement model settings
+# seed for movement models' pseudo random number generator (default = 0)
+MovementModel.rngSeed = 1
+# World's size for Movement Models without implicit size (width, height; meters)
+MovementModel.worldSize = 22000, 15000
+# How long time to move hosts in the world before real simulation
+MovementModel.warmup = 1000
+
+## Map based movement -movement model specific settings
+MapBasedMovement.nrofMapFiles = 1
+
+MapBasedMovement.mapFile1 = data/gatech/georgia_tech.osm.wkt
+
+## Reports - all report names have to be valid report classes
+
+# how many reports to load
+Report.nrofReports = 3
+# length of the warm up period (simulated seconds)
+Report.warmup = 0
+# default directory of reports (can be overridden per Report with output setting)
+Report.reportDir = reports/
+# Report classes to load
+Report.report1 = MessageStatsReport
+Report.report2 = DeliveredMessagesReport
+Report.report3 = ContactsPerHourReport
+
+## Default settings for some routers settings
+ProphetRouter.secondsInTimeUnit = 30
+SprayAndWaitRouter.nrofCopies = 6
+SprayAndWaitRouter.binaryMode = true
+
+## Optimization settings -- these affect the speed of the simulation
+## see World class for details.
+Optimization.cellSizeMult = 5
+Optimization.randomizeUpdateOrder = true
+
+
+## GUI settings
+
+# GUI underlay image settings
+# Image offset in pixels (x, y)
+GUI.UnderlayImage.offset = 64, 20
+# Scaling factor for the image
+GUI.UnderlayImage.scale = 4.75
+# Image rotation (radians)
+GUI.UnderlayImage.rotate = -0.015
+
+# how many events to show in the log panel (default = 30)
+GUI.EventLogPanel.nrofEvents = 100
+# Regular Expression log filter (see Pattern-class from the Java API for RE-matching details)
+#GUI.EventLogPanel.REfilter = .*p[1-9]<->p[1-9]$
