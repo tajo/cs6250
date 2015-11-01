@@ -3,7 +3,7 @@
 #
 
 ## Scenario settings
-Scenario.name = [simulation1;simulation2;simulation3]
+Scenario.name = [simulation1;simulation2]
 
 Scenario.simulateConnections = true
 Scenario.updateInterval = 1
@@ -19,14 +19,14 @@ btInterface.transmitRange = 10
 # High speed, long range, interface for group 1 and 4
 highspeedInterface.type = SimpleBroadcastInterface
 highspeedInterface.transmitSpeed = 10M
-highspeedInterface.transmitRange = 1000
+highspeedInterface.transmitRange = 100
 
 # Define 4 different node groups
 Scenario.nrofHostGroups = 4
 
 # Common settings for all groups
 Group.movementModel = ShortestPathMapBasedMovement
-Group.router = [EpidemicRouter;ProphetRouter;SprayAndWaitRouter]
+Group.router = [EpidemicRouter;SprayAndWaitRouter]
 Group.bufferSize = 5M
 Group.waitTime = 0, 120
 # All nodes have the bluetooth interface
@@ -43,7 +43,7 @@ Group1.movementModel = StationaryMovement
 Group1.nrofInterfaces = 1
 Group1.interface1 = highspeedInterface
 Group1.nrofHosts = 1
-Group1.nodeLocation =12000, 8000
+Group1.nodeLocation =1200, 800
 Group1.groupID = z
 Group1.bufferSize = 1G
 Group1.speed = 0,0
@@ -97,7 +97,7 @@ MovementModel.warmup = 1000
 ## Map based movement -movement model specific settings
 MapBasedMovement.nrofMapFiles = 1
 
-MapBasedMovement.mapFile1 = data/gatech/georgia_tech.osm.wkt
+MapBasedMovement.mapFile1 = data/gatech/gatech.wkt
 
 ## Reports - all report names have to be valid report classes
 
