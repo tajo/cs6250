@@ -17,16 +17,18 @@ Scenario.endTime = 43200
 # transmitSpeed : transmit speed of the interface (bytes per second)
 # transmitRange : range of the interface (meters)
 
-# "Bluetooth" interface for all nodes
+# Bluetooth 4.0 interface
+# specs: up to 25Mbps and 200 feet (60 meters), we use 1/4
 btInterface.type = SimpleBroadcastInterface
 # Transmit speed of 2 Mbps = 250kBps
-btInterface.transmitSpeed = 250k
-btInterface.transmitRange = 10
+btInterface.transmitSpeed = 750k
+btInterface.transmitRange = 30
 
-# High speed, long range, interface for group 4
-highspeedInterface.type = SimpleBroadcastInterface
-highspeedInterface.transmitSpeed = 10M
-highspeedInterface.transmitRange = 1000
+# Wifi-direct interface
+# specs: up to 250Mbps and 656 feed (200 meters), we use 1/4
+wifiInterface.type = SimpleBroadcastInterface
+wifiInterface.transmitSpeed = 7.5M
+wifiInterface.transmitRange = 50
 
 # Define 6 different node groups
 Scenario.nrofHostGroups = 3
@@ -54,9 +56,9 @@ Scenario.nrofHostGroups = 3
 # Common settings for all groups
 Group.movementModel = ShortestPathMapBasedMovement
 Group.router = EpidemicRouter
-Group.bufferSize = 5M
+Group.bufferSize = 100M
 Group.waitTime = 0, 120
-# All nodes have the bluetooth interface
+# All nodes have thed bluetooth interface
 Group.nrofInterfaces = 1
 Group.interface1 = btInterface
 # Walking speeds
@@ -64,21 +66,27 @@ Group.speed = 0.5, 1.5
 # Message TTL of 300 minutes (5 hours)
 Group.msgTtl = 300
 
-Group.nrofHosts = 40
+# group1: visitors - pedestrians
+################################
+Group1.groupID = v
+Group1.nrofHosts = 50
 
-# group1 (pedestrians) specific settings
-Group1.groupID = p
-
-# group2 specific settings
-Group2.groupID = c
-# cars can drive only on roads
+# group2: bikers
+################
+Group2.groupID = b
+#bikes can drive only on roads
 Group2.okMaps = 1
-# 10-50 km/h
-Group2.speed = 2.7, 13.9
+# 7.2-36 km/h
+Group2.speed = 2, 10
+Group2.nrofHosts = 50
+Group2.movementModel = ShortestPathMapBasedMovement
 
-# another group of pedestrians
-Group3.groupID = w
-
+# group3: students - pedestrians
+################################
+Group3.groupID = s
+Group3.interface1 = wifiInterface
+Group3.nrofHosts = 100
+# Group3.movementModel = WorkingDayMovement
 
 ## Message creation parameters
 # How many event generators
@@ -88,14 +96,13 @@ Events1.class = MessageEventGenerator
 # (following settings are specific for the MessageEventGenerator class)
 # Creation interval in seconds (one new message every 25 to 35 seconds)
 Events1.interval = 25,35
-# Message sizes (500kB - 1MB)
-Events1.size = 500k,1M
+# Message sizes (1M - 2M)
+Events1.size = 0.5M,1M
 # range of message source/destination addresses (# addresses must be <=
 # total # of hosts across all groups)
-Events1.hosts = 0,119
+Events1.hosts = 0,200
 # Message ID prefix
 Events1.prefix = M
-
 
 ## Movement model settings
 # seed for movement models' pseudo random number generator (default = 0)
