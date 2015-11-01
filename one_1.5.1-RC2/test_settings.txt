@@ -22,7 +22,7 @@ highspeedInterface.transmitSpeed = 10M
 highspeedInterface.transmitRange = 100
 
 # Define 4 different node groups
-Scenario.nrofHostGroups = 4
+Scenario.nrofHostGroups = 5
 
 # Common settings for all groups
 Group.movementModel = ShortestPathMapBasedMovement
@@ -67,6 +67,32 @@ Group4.nrofHosts = 8
 Group4.nrofInterfaces = 2
 Group4.interface1 = btInterface
 Group4.interface2 = highspeedInterface
+
+Group5.groupID = q
+Group5.speed = 7, 10
+Group5.waitTime = 10, 30
+#Group5.nrofHosts = 0 
+Group5.movementModel = WorkingDayMovement
+Group5.busControlSystemNr = 2
+Group5.speed = 0.8, 1.4
+Group5.ownCarProb = 0.5
+Group5.shoppingControlSystemNr = 2
+
+Group5.nrOfOffices = 50
+Group5.workDayLength = 28800
+Group5.probGoShoppingAfterWork = 0.5
+Group5.nrOfMeetingSpots = 10
+
+Group5.officeWaitTimeParetoCoeff = 0.5
+Group5.officeMinWaitTime = 10
+Group5.officeMaxWaitTime = 100000
+Group5.officeSize = 100
+
+Group5.timeDiffSTD = 0
+Group5.minGroupSize = 1
+Group5.maxGroupSize = 3
+Group5.minAfterShoppingStopTime = 3600
+Group5.maxAfterShoppingStopTime = 7200
 
 
 ## Message creation parameters
