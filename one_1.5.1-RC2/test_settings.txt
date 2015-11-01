@@ -90,14 +90,14 @@ Events1.prefix = M
 # seed for movement models' pseudo random number generator (default = 0)
 MovementModel.rngSeed = 1
 # World's size for Movement Models without implicit size (width, height; meters)
-MovementModel.worldSize = 22000, 15000
+#MovementModel.worldSize = 22000, 15000
 # How long time to move hosts in the world before real simulation
 MovementModel.warmup = 1000
 
 ## Map based movement -movement model specific settings
-MapBasedMovement.nrofMapFiles = 1
+#MapBasedMovement.nrofMapFiles = 1
 
-MapBasedMovement.mapFile1 = data/gatech/gatech.wkt
+#MapBasedMovement.mapFile1 = data/gatech/gatech.wkt
 
 ## Reports - all report names have to be valid report classes
 
