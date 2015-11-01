@@ -1,6 +1,6 @@
-#osm2wkt - openstreetmap to wkt conversion
+#[josm.jar - openstreetmap editor](https://josm.openstreetmap.de)
 
-[Webarchive link](https://web.archive.org/web/20140831225907/http://www.tm.kit.edu/~mayer/osm2wkt)
+#[osm2wkt.jar - openstreetmap to wkt](https://web.archive.org/web/20140831225907/http://www.tm.kit.edu/~mayer/osm2wkt)
 
 ##what
 
