@@ -30,8 +30,14 @@ wifiInterface.type = SimpleBroadcastInterface
 wifiInterface.transmitSpeed = 7.5M
 wifiInterface.transmitRange = 50
 
+# Bus Wifi interface
+# specs: up to 250Mbps and 656 feed (200 meters), we use 1/2 (more energy)
+busInterface.type = SimpleBroadcastInterface
+busInterface.transmitSpeed = 15M
+busInterface.transmitRange = 100
+
 # Define 6 different node groups
-Scenario.nrofHostGroups = 3
+Scenario.nrofHostGroups = 4
 
 ## Group-specific settings:
 # groupID : Group's identifier. Used as the prefix of host names
@@ -52,7 +58,6 @@ Scenario.nrofHostGroups = 3
 # routeFile: route's file path - for MapRouteMovement
 # routeType: route's type - for MapRouteMovement
 
-
 # Common settings for all groups
 Group.movementModel = ShortestPathMapBasedMovement
 Group.router = EpidemicRouter
@@ -69,7 +74,8 @@ Group.msgTtl = 300
 # group1: visitors - pedestrians
 ################################
 Group1.groupID = v
-Group1.nrofHosts = 50
+Group1.nrofHosts = 30
+Group1.waitTime = 0, 300
 
 # group2: bikers
 ################
@@ -77,16 +83,29 @@ Group2.groupID = b
 #bikes can drive only on roads
 Group2.okMaps = 1
 # 7.2-36 km/h
-Group2.speed = 2, 10
-Group2.nrofHosts = 50
+Group2.speed = 2, 8
+Group2.nrofHosts = 20
 Group2.movementModel = ShortestPathMapBasedMovement
+Group2.waitTime = 0, 60
 
 # group3: students - pedestrians
 ################################
 Group3.groupID = s
 Group3.interface1 = wifiInterface
-Group3.nrofHosts = 100
+Group3.nrofHosts = 50
+Group3.waitTime = 0, 30
 # Group3.movementModel = WorkingDayMovement
+
+# group4: ferst buses
+################################
+Group4.groupID = bus
+Group4.interface1 = busInterface
+Group4.nrofHosts = 6
+Group4.movementModel = MapRouteMovement
+Group4.routeFile = data/gatech/red_bus.wkt
+Group4.routeType = 1
+Group4.speed = 5, 5
+Group4.waitTime = 0, 0
 
 ## Message creation parameters
 # How many event generators
@@ -100,7 +119,7 @@ Events1.interval = 25,35
 Events1.size = 0.5M,1M
 # range of message source/destination addresses (# addresses must be <=
 # total # of hosts across all groups)
-Events1.hosts = 0,200
+Events1.hosts = 0,105
 # Message ID prefix
 Events1.prefix = M
 
