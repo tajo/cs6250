@@ -4,6 +4,7 @@
 
 ## Scenario settings
 Scenario.name = default_scenario
+# Scenario.name = [simulation1;simulation2;simulation3]
 Scenario.simulateConnections = true
 Scenario.updateInterval = 0.1
 # 43200s == 12h
@@ -60,6 +61,7 @@ Scenario.nrofHostGroups = 4
 
 # Common settings for all groups
 Group.movementModel = ShortestPathMapBasedMovement
+# Group.router = [EpidemicRouter;ProphetRouter;SprayAndWaitRouter]
 Group.router = EpidemicRouter
 Group.bufferSize = 100M
 Group.waitTime = 0, 120
@@ -70,6 +72,25 @@ Group.interface1 = btInterface
 Group.speed = 0.5, 1.5
 # Message TTL of 300 minutes (5 hours)
 Group.msgTtl = 300
+
+# working day settings
+###########################
+Group.nrOfOffices = 1
+Group.workDayLength = 28800
+Group.probGoShoppingAfterWork = 0.5
+Group.nrOfMeetingSpots = 1
+
+Group.officeWaitTimeParetoCoeff = 0.5
+Group.officeMinWaitTime = 10
+Group.officeMaxWaitTime = 100000
+Group.officeSize = 100
+Group.minGroupSize = 1
+Group.maxGroupSize = 5
+
+Group.timeDiffSTD = 0
+Group.minAfterShoppingStopTime = 3600
+Group.maxAfterShoppingStopTime = 7200
+
 
 # group1: visitors - pedestrians
 ################################
@@ -92,9 +113,17 @@ Group2.waitTime = 0, 60
 ################################
 Group3.groupID = s
 Group3.interface1 = wifiInterface
-Group3.nrofHosts = 50
+Group3.nrofHosts = 5
 Group3.waitTime = 0, 30
-# Group3.movementModel = WorkingDayMovement
+Group3.movementModel = WorkingDayMovement
+
+Group3.busControlSystemNr = 1
+Group3.speed = 0.8, 1.4
+Group3.ownCarProb = 0.5
+Group3.shoppingControlSystemNr = 1
+Group3.meetingSpotsFile = data/gatech/A_meeting.wkt
+Group3.officeLocationsFile = data/gatech/A_office.wkt
+Group3.homeLocationsFile = data/gatech/A_home.wkt
 
 # group4: ferst buses
 ################################
@@ -119,7 +148,7 @@ Events1.interval = 25,35
 Events1.size = 0.5M,1M
 # range of message source/destination addresses (# addresses must be <=
 # total # of hosts across all groups)
-Events1.hosts = 0,105
+Events1.hosts = 0,60
 # Message ID prefix
 Events1.prefix = M
 
