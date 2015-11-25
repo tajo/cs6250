@@ -1,133 +1,6 @@
-
-%% bare_conf.tex
-%% V1.4
-%% 2012/12/27
-%% by Michael Shell
-%% See:
-%% http://www.michaelshell.org/
-%% for current contact information.
-%%
-%% This is a skeleton file demonstrating the use of IEEEtran.cls
-%% (requires IEEEtran.cls version 1.8 or later) with an IEEE conference paper.
-%%
-%% Support sites:
-%% http://www.michaelshell.org/tex/ieeetran/
-%% http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
-%% and
-%% http://www.ieee.org/
-
-%%*************************************************************************
-%% Legal Notice:
-%% This code is offered as-is without any warranty either expressed or
-%% implied; without even the implied warranty of MERCHANTABILITY or
-%% FITNESS FOR A PARTICULAR PURPOSE!
-%% User assumes all risk.
-%% In no event shall IEEE or any contributor to this code be liable for
-%% any damages or losses, including, but not limited to, incidental,
-%% consequential, or any other damages, resulting from the use or misuse
-%% of any information contained here.
-%%
-%% All comments are the opinions of their respective authors and are not
-%% necessarily endorsed by the IEEE.
-%%
-%% This work is distributed under the LaTeX Project Public License (LPPL)
-%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
-%% distributed and modified. A copy of the LPPL, version 1.3, is included
-%% in the base LaTeX documentation of all distributions of LaTeX released
-%% 2003/12/01 or later.
-%% Retain all contribution notices and credits.
-%% ** Modified files should be clearly indicated as such, including  **
-%% ** renaming them and changing author support contact information. **
-%%
-%% File list of work: IEEEtran.cls, IEEEtran_HOWTO.pdf, bare_adv.tex,
-%%                    bare_conf.tex, bare_jrnl.tex, bare_jrnl_compsoc.tex,
-%%                    bare_jrnl_transmag.tex
-%%*************************************************************************
-
-% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
-% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
-% *** with production work. IEEE's font choices can trigger bugs that do  ***
-% *** not appear when using other class files.                            ***
-% The testflow support page is at:
-% http://www.michaelshell.org/tex/testflow/
-
-
-
-% Note that the a4paper option is mainly intended so that authors in
-% countries using A4 can easily print to A4 and see how their papers will
-% look in print - the typesetting of the document will not typically be
-% affected with changes in paper size (but the bottom and side margins will).
-% Use the testflow package mentioned above to verify correct handling of
-% both paper sizes by the user's LaTeX system.
-%
-% Also note that the "draftcls" or "draftclsnofoot", not "draft", option
-% should be used if it is desired that the figures are to be displayed in
-% draft mode.
-%
 \documentclass[conference]{IEEEtran}
-% Add the compsoc option for Computer Society conferences.
-%
-% If IEEEtran.cls has not been installed into the LaTeX system files,
-% manually specify the path to it like:
-% \documentclass[conference]{../sty/IEEEtran}
+\usepackage[numbers,sort]{natbib}
 
-
-
-
-
-% Some very useful LaTeX packages include:
-% (uncomment the ones you want to load)
-
-
-% *** MISC UTILITY PACKAGES ***
-%
-%\usepackage{ifpdf}
-% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
-% compilation based on whether the output is pdf or dvi.
-% usage:
-% \ifpdf
-%   % pdf code
-% \else
-%   % dvi code
-% \fi
-% The latest version of ifpdf.sty can be obtained from:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/
-% Also, note that IEEEtran.cls V1.7 and later provides a builtin
-% \ifCLASSINFOpdf conditional that works the same way.
-% When switching from latex to pdflatex and vice-versa, the compiler may
-% have to be run twice to clear warning/error messages.
-
-
-
-
-
-
-% *** CITATION PACKAGES ***
-%
-%\usepackage{cite}
-% cite.sty was written by Donald Arseneau
-% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
-% \cite{} output to follow that of IEEE. Loading the cite package will
-% result in citation numbers being automatically sorted and properly
-% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
-% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
-% \cite will automatically add leading space, if needed. Use cite.sty's
-% noadjust option (cite.sty V3.8 and later) if you want to turn this off
-% such as if a citation ever needs to be enclosed in parenthesis.
-% cite.sty is already installed on most LaTeX systems. Be sure and use
-% version 4.0 (2003-05-27) and later if using hyperref.sty. cite.sty does
-% not currently provide for hyperlinked citations.
-% The latest version can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/cite/
-% The documentation is contained in the cite.sty file itself.
-
-
-
-
-
-
-% *** GRAPHICS RELATED PACKAGES ***
-%
 \ifCLASSINFOpdf
   % \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
@@ -146,181 +19,6 @@
   % every instance of \includegraphics
   % \DeclareGraphicsExtensions{.eps}
 \fi
-% graphicx was written by David Carlisle and Sebastian Rahtz. It is
-% required if you want graphics, photos, etc. graphicx.sty is already
-% installed on most LaTeX systems. The latest version and documentation
-% can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/required/graphics/
-% Another good source of documentation is "Using Imported Graphics in
-% LaTeX2e" by Keith Reckdahl which can be found at:
-% http://www.ctan.org/tex-archive/info/epslatex/
-%
-% latex, and pdflatex in dvi mode, support graphics in encapsulated
-% postscript (.eps) format. pdflatex in pdf mode supports graphics
-% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
-% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
-% not a bitmapped formats (.jpeg, .png). IEEE frowns on bitmapped formats
-% which can result in "jaggedy"/blurry rendering of lines and letters as
-% well as large increases in file sizes.
-%
-% You can find documentation about the pdfTeX application at:
-% http://www.tug.org/applications/pdftex
-
-
-
-
-
-% *** MATH PACKAGES ***
-%
-%\usepackage[cmex10]{amsmath}
-% A popular package from the American Mathematical Society that provides
-% many useful and powerful commands for dealing with mathematics. If using
-% it, be sure to load this package with the cmex10 option to ensure that
-% only type 1 fonts will utilized at all point sizes. Without this option,
-% it is possible that some math symbols, particularly those within
-% footnotes, will be rendered in bitmap form which will result in a
-% document that can not be IEEE Xplore compliant!
-%
-% Also, note that the amsmath package sets \interdisplaylinepenalty to 10000
-% thus preventing page breaks from occurring within multiline equations. Use:
-%\interdisplaylinepenalty=2500
-% after loading amsmath to restore such page breaks as IEEEtran.cls normally
-% does. amsmath.sty is already installed on most LaTeX systems. The latest
-% version and documentation can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/required/amslatex/math/
-
-
-
-
-
-% *** SPECIALIZED LIST PACKAGES ***
-%
-%\usepackage{algorithmic}
-% algorithmic.sty was written by Peter Williams and Rogerio Brito.
-% This package provides an algorithmic environment fo describing algorithms.
-% You can use the algorithmic environment in-text or within a figure
-% environment to provide for a floating algorithm. Do NOT use the algorithm
-% floating environment provided by algorithm.sty (by the same authors) or
-% algorithm2e.sty (by Christophe Fiorio) as IEEE does not use dedicated
-% algorithm float types and packages that provide these will not provide
-% correct IEEE style captions. The latest version and documentation of
-% algorithmic.sty can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithms/
-% There is also a support site at:
-% http://algorithms.berlios.de/index.html
-% Also of interest may be the (relatively newer and more customizable)
-% algorithmicx.sty package by Szasz Janos:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/
-
-
-
-
-% *** ALIGNMENT PACKAGES ***
-%
-%\usepackage{array}
-% Frank Mittelbach's and David Carlisle's array.sty patches and improves
-% the standard LaTeX2e array and tabular environments to provide better
-% appearance and additional user controls. As the default LaTeX2e table
-% generation code is lacking to the point of almost being broken with
-% respect to the quality of the end results, all users are strongly
-% advised to use an enhanced (at the very least that provided by array.sty)
-% set of table tools. array.sty is already installed on most systems. The
-% latest version and documentation can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/required/tools/
-
-
-% IEEEtran contains the IEEEeqnarray family of commands that can be used to
-% generate multiline equations as well as matrices, tables, etc., of high
-% quality.
-
-
-
-
-% *** SUBFIGURE PACKAGES ***
-%\ifCLASSOPTIONcompsoc
-%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
-%\else
-%  \usepackage[caption=false,font=footnotesize]{subfig}
-%\fi
-% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
-% for subfigure.sty, the latter of which is no longer maintained and is
-% incompatible with some LaTeX packages including fixltx2e. However,
-% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
-% which will override IEEEtran.cls' handling of captions and this will result
-% in non-IEEE style figure/table captions. To prevent this problem, be sure
-% and invoke subfig.sty's "caption=false" package option (available since
-% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
-% handling of captions.
-% Note that the Computer Society format requires a larger sans serif font
-% than the serif footnote size font used in traditional IEEE formatting
-% and thus the need to invoke different subfig.sty package options depending
-% on whether compsoc mode has been enabled.
-%
-% The latest version and documentation of subfig.sty can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
-
-
-
-
-% *** FLOAT PACKAGES ***
-%
-%\usepackage{fixltx2e}
-% fixltx2e, the successor to the earlier fix2col.sty, was written by
-% Frank Mittelbach and David Carlisle. This package corrects a few problems
-% in the LaTeX2e kernel, the most notable of which is that in current
-% LaTeX2e releases, the ordering of single and double column floats is not
-% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
-% single column figure to be placed prior to an earlier double column
-% figure. The latest version and documentation can be found at:
-% http://www.ctan.org/tex-archive/macros/latex/base/
-
-
-%\usepackage{stfloats}
-% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
-% the ability to do double column floats at the bottom of the page as well
-% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
-% LaTeX2e). It also provides a command:
-%\fnbelowfloat
-% to enable the placement of footnotes below bottom floats (the standard
-% LaTeX2e kernel puts them above bottom floats). This is an invasive package
-% which rewrites many portions of the LaTeX2e float routines. It may not work
-% with other packages that modify the LaTeX2e float routines. The latest
-% version and documentation can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/sttools/
-% Do not use the stfloats baselinefloat ability as IEEE does not allow
-% \baselineskip to stretch. Authors submitting work to the IEEE should note
-% that IEEE rarely uses double column equations and that authors should try
-% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
-% packages (also by Sigitas Tolusis) as IEEE does not format its papers in
-% such ways.
-% Do not attempt to use stfloats with fixltx2e as they are incompatible.
-% Instead, use Morten Hogholm'a dblfloatfix which combines the features
-% of both fixltx2e and stfloats:
-%
-% \usepackage{dblfloatfix}
-% The latest version can be found at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/dblfloatfix/
-
-
-
-
-% *** PDF, URL AND HYPERLINK PACKAGES ***
-%
-%\usepackage{url}
-% url.sty was written by Donald Arseneau. It provides better support for
-% handling and breaking URLs. url.sty is already installed on most LaTeX
-% systems. The latest version and documentation can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/url/
-% Basically, \url{my_url_here}.
-
-
-
-
-% *** Do not adjust lengths that control margins, column widths, etc. ***
-% *** Do not use packages that alter fonts (such as pslatex).         ***
-% There should be no need to do such things with IEEEtran.cls V1.6 and later.
-% (Unless specifically asked to do so by the journal or conference you plan
-% to submit to, of course. )
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
@@ -343,37 +41,6 @@ Atlanta, Georgia 30332\\
 Email: \{miksu, gustav, dcarrington3, jychen, anjjan.narayan\}@gatech.edu}
 }
 
-% conference papers do not typically use \thanks and this command
-% is locked out in conference mode. If really needed, such as for
-% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
-% after \documentclass
-
-% for over three affiliations, or if they all won't fit within the width
-% of the page, use this alternative format:
-%
-%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
-%Homer Simpson\IEEEauthorrefmark{2},
-%James Kirk\IEEEauthorrefmark{3},
-%Montgomery Scott\IEEEauthorrefmark{3} and
-%Eldon Tyrell\IEEEauthorrefmark{4}}
-%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
-%Georgia Institute of Technology,
-%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
-%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
-%Email: homer@thesimpsons.com}
-%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
-%Telephone: (800) 555--1212, Fax: (888) 555--1212}
-%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
-
-
-
-
-% use for special paper notices
-%\IEEEspecialpapernotice{(Invited Paper)}
-
-
-
-
 % make the title area
 \maketitle
 
@@ -386,16 +53,9 @@ Cross Block Chaining (XBC) is a mode of operation for a block cipher. It resembl
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{keywords}
-cross block chaining; XBC; IND-CPA; IND-CCA; security analysis
+The ONE; opportunistic networks; routing
 \end{keywords}
 
-% no keywords
-% For peer review papers, you can put extra information on the cover
-% page as needed:
-% \ifCLASSOPTIONpeerreview
-% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
-% \fi
-%
 % For peerreview papers, this IEEEtran command inserts a page break and
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
@@ -403,11 +63,11 @@ cross block chaining; XBC; IND-CPA; IND-CCA; security analysis
 \section{Introduction}
 % no \IEEEPARstart
 
-Since a block cipher by itself is suitable only for encryption or decryption of one length-fixed block of bits, there is a need to introduce an algorithm, a mode of operation, that uses the block cipher as a underlying building block and enables us to encrypt or decrypt a message of variable length. There are many modes in a widespread use: Electronic Codebook (EBC), Cipher Block Chaining (CBC), Cipher Feedback (CFB), Output Feedback (OFB) or Counter (CTR).
+With the increasing use of mobile devices such as smartphones, tablets and laptop computers that are connected wirelessly to a network, there arises a potential to use ad-hoc networks. Ad-hoc networks are the only option for some applications where various challenges such as intermittent connectivity and variable performance arise. In most cases these networks do not contain a path from source to destination.
 
-In May 2014, Andre Watson submitted a proposal for a new block cipher mode of operation called Cross Block Chaining (XBC). This proposal was published by National Institute of Standards and Technology (NIST) under the proposed modes section. However, no formal proof considering security has been made.
+Opportunistic network provides the perfect platform to improve the usability and connectivity of mobile devices that are on the go. Our work primarily focuses on opportunistic network protocols. As a part of our work, we compare the different protocols, their parameterization and ultimately come up with our proposal and implementation of enhancement to the protocols. During the study, we use The Opportunistic Networks Environment (The ONE) simulator \cite{keranen-theone} that was created at Helsinki University of Technology.
 
-Section II talks about the fundamentals and design of the XBC mode and its two main variants. Section III describes security analysis and provides various attacks that can be used against the XBC scheme. Section IV shows an intuition for the proof of IND-CPA security of XBC mode. The last part is conclusion.
+The ONE is a complex tool that enables a real-time simulation of delay-tolerant networks. It implements various existing protocols and provides an interface to create and test new ones. It is also possible to use different map backgrounds since opportunistic networks are heavily related to a real-world routes. We use a map of Georgia Tech in Atlanta.
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
@@ -435,7 +95,6 @@ Section II talks about the fundamentals and design of the XBC mode and its two m
 % Note that IEEE typically puts floats only at the top, even when this
 % results in a large percentage of a column being occupied by floats.
 
-
 % An example of a double column floating figure using two subfigures.
 % (The subfig.sty package must be loaded for this to work.)
 % The subfigure \label commands are set within each subfloat command,
@@ -459,57 +118,100 @@ Section II talks about the fundamentals and design of the XBC mode and its two m
 % captions (using the optional argument to \subfloat[]), but instead will
 % reference/describe all of them (a), (b), etc., within the main caption.
 
+\section{Opportunistic networks}
 
-% An example of a floating table. Note that, for IEEE style tables, the
-% \caption command should come BEFORE the table. Table text will default to
-% \footnotesize as IEEE normally uses this smaller font for tables.
-% The \label must come after \caption as always.
-%
-%\begin{table}[!t]
-%% increase table row spacing, adjust to taste
-%\renewcommand{\arraystretch}{1.3}
-% if using array.sty, it might be a good idea to tweak the value of
-% \extrarowheight as needed to properly center the text within the cells
-%\caption{An Example of a Table}
-%\label{table_example}
-%\centering
-%% Some packages, such as MDW tools, offer better commands for making tables
-%% than the plain LaTeX2e tabular which is used here.
-%\begin{tabular}{|c||c|}
-%\hline
-%One & Two\\
-%\hline
-%Three & Four\\
-%\hline
-%\end{tabular}
-%\end{table}
+In order to avoid the costly process of introducing cables into a building, or as a connection between various equipment locations, personal devices, telecommunication networks and business installations are moving to wireless networks. The devices such as smartphones, tablets and laptops are in constant movement from one location to another. There is no solid infrastructure or protocols that can manage this transition of devices from one location to another.
+
+During the last few years, ad hoc networks have been studied extensively and implemented on various application environments. As the application environments of these networks keep increasing, their traditional techniques and approaches need some improvements. One of the recent evolution in ad hoc networks is Mobile ad hoc networks (MANETs). Ad hoc networks also helps mobile nodes to reach infrastructure when some node in the network acts as a gateway. However, if the density of the nodes increases or the connection of a node in the network breaks, traditional network protocols would not be able to provide means for connection establishment and communication.
+
+Wireless network properties such as disconnection of nodes, mobility of users, and link instability cannot be handled in traditional networks. Opportunistic networks are created for mobile devices without relying on pre-existing topology. Opportunistic networks are the evolution of MANETs. In opportunistic networks, mobile nodes can communicate with each other even if a route connecting them doesn’t exist. Opportunistic networks consists of a variety of applications. Some of the applications include opportunistic computing, mobile data offloading, recommender systems etc. Opportunistic networks are created out of mobile devices carried by people, without relying on any existing network topology. In opportunistic network mobility is used as a technique to provide communication between disconnected nodes, rather than a drawback to be solved. Opportunistic networks can be useful for emergency broadcasts, vehicle-to-vehicle communication.
 
 
-% Note that IEEE does not put floats in the very first column - or typically
-% anywhere on the first page for that matter. Also, in-text middle ("here")
-% positioning is not used. Most IEEE journals/conferences use top floats
-% exclusively. Note that, LaTeX2e, unlike IEEE journals/conferences, places
-% footnotes above bottom floats. This can be corrected via the \fnbelowfloat
-% command of the stfloats package.
+\section{The one simulator}
 
-\section{Cross block chaining}
+For the project, we are mainly working with the Opportunistic Network Simulator (ONE). ONE is an event simulation engine which is used to model node movement, inter-node connections using various interfaces, routing, message handling and application interactions. The simulator also provides tools for visualization, reports and post-processing tools.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet turpis ac mauris fringilla, molestie sagittis risus tincidunt. Fusce ullamcorper, metus cursus dictum tempus, lorem odio sagittis lectus, sit amet lobortis leo magna quis odio. Quisque malesuada purus vitae risus accumsan, vel pharetra ligula sollicitudin. Integer felis purus, dapibus in condimentum vel, molestie ultricies dui. Vestibulum quis augue sem. Vivamus ultricies dui est, ac aliquet eros efficitur ut. Pellentesque vel tempor eros. Sed suscipit volutpat enim et semper. In rhoncus hendrerit aliquet. Aliquam condimentum posuere mi, varius porttitor mi suscipit eget. Duis aliquet massa lectus, in facilisis tortor pulvinar quis. Suspendisse cursus lectus dui, ac posuere lorem tempor quis. Vivamus imperdiet bibendum magna. Curabitur in magna vitae ipsum finibus lobortis consectetur non tortor.
+Node movement is implemented using movement models which are either synthetic or movement traces. Nodes are connected based on their location, communication-range or bit-rate. The routing models decide which messages to forward over the existing connections. The messages are generated either through event generators (to generate random traffic between nodes) or through applications that generate traffic based on application interactions.
 
-Curabitur sagittis mi eros. Aliquam tempus rutrum erat. Ut sit amet placerat justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum hendrerit ullamcorper orci, ut tincidunt justo sagittis sed. Pellentesque tempus sapien dui, sit amet lobortis risus cursus eget. Duis vestibulum mi nec magna ultrices, vitae viverra mauris vehicula. Nulla tempus eleifend sollicitudin. Cras sollicitudin libero condimentum, mattis turpis non, consequat lorem. Aliquam vitae est sed justo porttitor interdum. Phasellus faucibus, leo sit amet imperdiet tempor, ante tortor hendrerit mauris, a convallis nisl tellus quis turpis. Etiam eget pulvinar eros, nec maximus orci. Nunc placerat felis et quam laoreet venenatis. Donec ut tortor augue. Duis vitae bibendum ante, a egestas nunc.
+\section{Background map}
 
-\subsection{Algorithm XBC-1}
+The ONE simulator uses wkt format known as well-known text. It is a simple format for representing vector geometry objects. It is used for roads, buildings, routes and points of interest. The key piece of our simulation is a real world background map. The default option was a map of Helsinki. We have replaced it with a map of the Georgia Tech campus in Atlanta.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet turpis ac mauris fringilla, molestie sagittis risus tincidunt. Fusce ullamcorper, metus cursus dictum tempus, lorem odio sagittis lectus, sit amet lobortis leo magna quis odio. Quisque malesuada purus vitae risus accumsan, vel pharetra ligula sollicitudin. Integer felis purus, dapibus in condimentum vel, molestie ultricies dui. Vestibulum quis augue sem. Vivamus ultricies dui est, ac aliquet eros efficitur ut. Pellentesque vel tempor eros. Sed suscipit volutpat enim et semper. In rhoncus hendrerit aliquet. Aliquam condimentum posuere mi, varius porttitor mi suscipit eget. Duis aliquet massa lectus, in facilisis tortor pulvinar quis. Suspendisse cursus lectus dui, ac posuere lorem tempor quis. Vivamus imperdiet bibendum magna. Curabitur in magna vitae ipsum finibus lobortis consectetur non tortor.
+\subsection{Map pre-processing}
 
-Curabitur sagittis mi eros. Aliquam tempus rutrum erat. Ut sit amet placerat justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum hendrerit ullamcorper orci, ut tincidunt justo sagittis sed. Pellentesque tempus sapien dui, sit amet lobortis risus cursus eget. Duis vestibulum mi nec magna ultrices, vitae viverra mauris vehicula. Nulla tempus eleifend sollicitudin. Cras sollicitudin libero condimentum, mattis turpis non, consequat lorem. Aliquam vitae est sed justo porttitor interdum. Phasellus faucibus, leo sit amet imperdiet tempor, ante tortor hendrerit mauris, a convallis nisl tellus quis turpis. Etiam eget pulvinar eros, nec maximus orci. Nunc placerat felis et quam laoreet venenatis. Donec ut tortor augue. Duis vitae bibendum ante, a egestas nunc.
+\begin{itemize}
+  \item The original map is exported from Open Street Map.
+  \item Open Street Map uses its own format; therefore, we used osm2wkt conversion tool to get the wkt format.
+  \item The map converted by osm2wkt contains some undesirable layers and objects; another tool, OpenJUMP, was used for the final clean-up.
+  \item The world size defined by ONE configuration was updated to width 2200 meters and height 1600 meters in order to get proper scaling.
+\end{itemize}
 
-\subsection{Algorithm XBC-2}
+\subsection{Bus route}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam laoreet turpis ac mauris fringilla, molestie sagittis risus tincidunt. Fusce ullamcorper, metus cursus dictum tempus, lorem odio sagittis lectus, sit amet lobortis leo magna quis odio. Quisque malesuada purus vitae risus accumsan, vel pharetra ligula sollicitudin. Integer felis purus, dapibus in condimentum vel, molestie ultricies dui. Vestibulum quis augue sem. Vivamus ultricies dui est, ac aliquet eros efficitur ut. Pellentesque vel tempor eros. Sed suscipit volutpat enim et semper. In rhoncus hendrerit aliquet. Aliquam condimentum posuere mi, varius porttitor mi suscipit eget. Duis aliquet massa lectus, in facilisis tortor pulvinar quis. Suspendisse cursus lectus dui, ac posuere lorem tempor quis. Vivamus imperdiet bibendum magna. Curabitur in magna vitae ipsum finibus lobortis consectetur non tortor.
+\begin{itemize}
+  \item To make our simulation more interesting we decided to introduce a special group of nodes - buses.
+  \item We focused on the GT red line bus since it’s the only one that stays in bounds of our campus and its route is similar to other lines.
+  \item The program OpenJUMP was used for the route selection.
+  \item Unfortunately, it exported out many fragmented routes that had to be connected by hand, so the bus can go in one and circular way
+\end{itemize}
 
-Curabitur sagittis mi eros. Aliquam tempus rutrum erat. Ut sit amet placerat justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum hendrerit ullamcorper orci, ut tincidunt justo sagittis sed. Pellentesque tempus sapien dui, sit amet lobortis risus cursus eget. Duis vestibulum mi nec magna ultrices, vitae viverra mauris vehicula. Nulla tempus eleifend sollicitudin. Cras sollicitudin libero condimentum, mattis turpis non, consequat lorem. Aliquam vitae est sed justo porttitor interdum. Phasellus faucibus, leo sit amet imperdiet tempor, ante tortor hendrerit mauris, a convallis nisl tellus quis turpis. Etiam eget pulvinar eros, nec maximus orci. Nunc placerat felis et quam laoreet venenatis. Donec ut tortor augue. Duis vitae bibendum ante, a egestas nunc.
+\section{Networking hardware}
 
+We specify 3 different network interfaces that can be used by nodes in our models. They all assume perfect circular transmission range.
+
+\begin{itemize}
+  \item Bluetooth 4.0: Speed = 750kB/s, range = 30 meters.
+  \item Wifi direct: Speed = 7.5MB/s, range = 50 meters.
+  \item Wifi direct+: Speed = 15 MB/s, range = 100 meters.
+\end{itemize}
+
+\section{Performance measurement methodology}
+
+We evaluate different protocols in different situations using a variety of different measurements. Since nodes are mobile and will have a limited energy supply - except maybe buses, if they would use a generator from the engine rather than a battery - we want to consider different energy efficiency metrics.
+
+The ONE simulator has some support for energy measurements in terms of how much energy the networking costs. Specifically, we are able to specify the initial energy level (i.e. battery capacity) and specify costs of transmission, scanning, scan response, and more. We have enabled the ONE to dump the current energy level of all nodes every hour (3600 seconds), and we use a separate script to generate the average energy level for each group of nodes. We will extend this to give other measurements such as used energy, number of nodes that ran out of battery, average (and maybe low, high) battery percentage remaining of nodes. We will use the resulting report to measure the energy efficiency of the different schemes.
+
+The ONE simulator also supports other reports. Many of them are related to message delivery probability, statistics on queue sizes in the nodes, and total contact time (time within range of other nodes). Especially statistics on message delivery and queue sizes are the more straightforward performance measurements that we will compare between different protocols, although energy is also an important aspect in this setting.
+
+\section{Node groups}
+
+Nodes are the vital part of our simulation. They are basic communication units that can send, receive, buffer and route data. They are also subject to specified or stochastic movement with different speeds and directions. Every group of nodes uses a different network interface. We have four different groups with a total of 106 nodes. See the table \ref{node_groups}.
+
+\begin{table}[!t]
+\renewcommand{\arraystretch}{1.5}
+\caption{Node groups}
+\label{node_groups}
+\centering
+\begin{tabular}{|c||c||c||c||c|}
+\hline
+ & Visitors & Bikers & Students & Buses\\
+\hline
+Label & v & b & s & bus\\
+\hline
+Number & 30 & 20 & 50 & 6\\
+\hline
+Speed km/h & 0.5 - 1.5 & 2 - 8 & 0.5 - 1.5 & 5\\
+\hline
+Wait time s & 0 - 300 & 0 - 60 & 0 - 30 & 0\\
+\hline
+Movement & shortest p. & shortest p. & working day & route\\
+\hline
+Interface & BT & BT & Wifi direct & Wifi direct+\\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Movement}
+
+The basic movement type in the ONE simulator is ShortestPathMapBasedMovement. For each node, the simulator will randomly pick an end point on the map and move it there by using Dijkstra Shortest Path Algorithm.
+
+In order to simulate the movement of different objects in real life, we decided to use two special movement types -- MapRouteMovement and WorkingDayMovement. They can help us easily control the movement pattern of different groups of nodes.
+
+The MapRouteMovement model enables a group of nodes to follow a certain route which is defined by the user. In our experiment, it is applied to the bus group. By doing so, we can simulate the movement of Georgia Tech buses.
+
+The WorkingDayMovement model presents the everyday life of average people that go to work in the morning, spend their day at work, and commute back to their homes in the evening. Some of them might go shopping afterwards.
+
+We define multiple groups of people who work in different buildings and live in different apartments around the campus.
 
 \section{Security analysis of different modes}
 
@@ -529,42 +231,10 @@ Curabitur sagittis mi eros. Aliquam tempus rutrum erat. Ut sit amet placerat jus
 % use section* for acknowledgement
 \section*{Acknowledgment}
 
-We would like to show our gratitude to Dr. Alexandra Boldyreva, Georgia Tech for sharing her pearls of wisdom with us during the Applied Cryptography course and her guidance received while working on this project.
+We would like to show our gratitude to Dr. Mostafa Ammar, Georgia Tech for sharing his pearls of wisdom with us during the Computer Networks course and his guidance received while working on this project.
 
-
-
-
-
-
-% trigger a \newpage just before the given reference
-% number - used to balance the columns on the last page
-% adjust value as needed - may need to be readjusted if
-% the document is modified later
-%\IEEEtriggeratref{8}
-% The "triggered" command can be changed if desired:
-%\IEEEtriggercmd{\enlargethispage{-5in}}
-
-% references section
-
-% can use a bibliography generated by BibTeX as a .bbl file
-% BibTeX documentation can be easily obtained at:
-% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
-% The IEEEtran BibTeX style support page is at:
-% http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
-% argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
-%
-% <OR> manually copy in the resultant .bbl file
-% set second argument of \begin to the number of references
-% (used to reserve space for the reference number labels box)
-\begin{thebibliography}{1}
-
-\bibitem{watson}
-Andre Watson, \emph{Cross Block Chaining (XBC)}.\hskip 1em plus
-  0.5em minus 0.4em\relax May, 2014.
-
-\end{thebibliography}
+\bibliographystyle{unsrtnat}
+\bibliography{refs}
 
 % that's all folks
 \end{document}
