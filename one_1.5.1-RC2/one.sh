@@ -10,4 +10,4 @@ for var in "$@"; do
     fi;
 done
 
-python process_energy_report.py $(echo ${argslist[*]})
+python scripts/process_energy_report.py $(echo ${argslist[*]})

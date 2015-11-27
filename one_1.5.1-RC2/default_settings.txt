@@ -179,14 +179,34 @@ Report.report2 = DeliveredMessagesReport
 Report.report3 = TotalContactTimeReport
 Report.report4 = EnergyLevelReport
 
-# Nodes report hourly
-EnergyLevelReport.granularity = 3600
+## Nodes report every 20 minutes
+EnergyLevelReport.granularity = 1200
 
-# EnergyModel settings
-Group.initialEnergy = 100000
-Group.transmitEnergy = 1
-Group.scanEnergy = 1
-Group.scanResponseEnergy = 1
+## EnergyModel settings
+
+# Visitor pedestrians
+Group1.initialEnergy = 80000
+Group1.transmitEnergy = 1
+Group1.scanEnergy = 1
+Group1.scanResponseEnergy = 1
+
+# Bikers
+Group2.initialEnergy = 110000
+Group2.transmitEnergy = 1
+Group2.scanEnergy = 1
+Group2.scanResponseEnergy = 1
+
+# Student pedestrians
+Group3.initialEnergy = 100000
+Group3.transmitEnergy = 1
+Group3.scanEnergy = 1
+Group3.scanResponseEnergy = 1
+
+# Ferst buses
+Group4.initialEnergy = 200000
+Group4.transmitEnergy = 1.5
+Group4.scanEnergy = 1.5
+Group4.scanResponseEnergy = 1.5
 
 ## Default settings for some routers settings
 ProphetRouter.secondsInTimeUnit = 30

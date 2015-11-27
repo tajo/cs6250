@@ -2,3 +2,4 @@
 reports/
 doc/
 !doc/create_docs.sh
+plots/
