@@ -7,8 +7,8 @@ Scenario.name = default_scenario
 # Scenario.name = [simulation1;simulation2;simulation3]
 Scenario.simulateConnections = true
 Scenario.updateInterval = 0.1
-# 86000s == 24h
-Scenario.endTime = 86000
+# 57600s == 16h
+Scenario.endTime = 57600
 
 
 ## Interface-specific settings:
