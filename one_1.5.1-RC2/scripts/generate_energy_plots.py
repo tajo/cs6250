@@ -4,6 +4,8 @@ import process_energy_report as proc
 import matplotlib.pyplot as plt
 
 PLOTS_FILENAME_PREFIX = "plots/"
+HOURLY = 1
+MINUTELY = 2
 
 def generate_energy_plots(args):
 	energy_report = proc.check_generate_energy_report(args, write=False)
@@ -59,16 +61,27 @@ def generate_energy_plots(args):
 					group_id = group_to_id[group]
 					ys[group_id] = ys[group_id][:min(i+2, len(x_orig))]
 				break
-	x = [t/60.0 for t in x_orig]
+
+	# Plot vs hours
+	unit = HOURLY
+	time_unit = 'hours'
+
+	if unit==HOURLY:
+		x = [t/3600.0 for t in x_orig]
+	elif unit==MINUTELY:
+		x = [t/60.0 for t in x_orig]
+
 	plot(group_ids, x, ys, "AVG Energy Levels", "Energy Level", savefig=SAVE_FIGURES,
-		 filename="%s_AVG_ENERGY_LEVELS" % scenario_name if SAVE_FIGURES else None)
+		 filename="%s_AVG_ENERGY_LEVELS" % scenario_name if SAVE_FIGURES else None,
+		 time_unit=time_unit)
 
 	## PLOT AVG PERCENT OF ENERGY LEFT
 	for group_id in ys:
 		ys[group_id] = [0 if ys[group_id][0] == 0.0 else 100.0*level / float(ys[group_id][0])
 				        for level in ys[group_id]]
 	plot(group_ids, x, ys, "AVG Energy Percentage", "Energy Percentage", savefig=SAVE_FIGURES,
-		 filename="%s_AVG_ENERGY_PERCENTAGES" % scenario_name if SAVE_FIGURES else None)
+		 filename="%s_AVG_ENERGY_PERCENTAGES" % scenario_name if SAVE_FIGURES else None,
+		 time_unit=time_unit)
 	print "Percent of Energy Left at End of Run:"
 	for group_id in group_ids:
 		print "%s:\t%.1f%%" % (
@@ -76,7 +89,11 @@ def generate_energy_plots(args):
 		)
 
 	### PLOT AVG ENERGY COMSUMPTION
-	x_avg = [t/60.0 for t in x_orig[1:]]
+	if unit==HOURLY:
+		x_avg = [t/3600.0 for t in x_orig[1:]]
+	elif unit==MINUTELY:
+		x_avg = [t/60.0 for t in x_orig[1:]]
+
 	ys = {}
 	for group in groups:
 		group_id = group_to_id[group]
@@ -88,7 +105,8 @@ def generate_energy_plots(args):
 			consumption_rates.append(change)
 		ys[group_id] = consumption_rates
 	plot(group_ids, x_avg, ys, "AVG Energy Consumption", "Energy Consumption", savefig=SAVE_FIGURES,
-		 filename="%s_AVG_ENERGY_CONSUMPTION" % scenario_name if SAVE_FIGURES else None)
+		 filename="%s_AVG_ENERGY_CONSUMPTION" % scenario_name if SAVE_FIGURES else None,
+		 time_unit=time_unit)
 
 	### PLOT NUM DEAD NODES
 	x_orig = sorted(dead_nodes_by_type_time.keys())
@@ -108,9 +126,15 @@ def generate_energy_plots(args):
 					group_id = group_to_id[group]
 					ys[group_id] = ys[group_id][:min(i+2, len(x_orig))]
 				break
-	x = [t/60.0 for t in x_orig]
+
+	if unit==HOURLY:
+		x = [t/3600.0 for t in x_orig]
+	elif unit==MINUTELY:
+		x = [t/60.0 for t in x_orig]
+
 	plot(group_ids, x, ys, "# Dead Nodes", savefig=SAVE_FIGURES,
-		 filename="%s_NUM_DEAD_NODES" % scenario_name if SAVE_FIGURES else None)
+		 filename="%s_NUM_DEAD_NODES" % scenario_name if SAVE_FIGURES else None,
+		 time_unit=time_unit)
 
 	# PLOT PERCENT OF NODES ALIVE
 	for group in groups:
@@ -120,7 +144,8 @@ def generate_energy_plots(args):
 	for group in groups:
 				group_id = group_to_id[group]
 	plot(group_ids, x, ys, "% Alive Nodes", savefig=SAVE_FIGURES,
-		 filename="%s_PERCENT_DEAD_NODES" % scenario_name if SAVE_FIGURES else None)
+		 filename="%s_PERCENT_DEAD_NODES" % scenario_name if SAVE_FIGURES else None,
+		 time_unit=time_unit)
 
 def plot(group_ids, x, ys, title, ylabel=None, time_unit='min', savefig=False, filename=None):
 	plt.figure(figsize=(10,8))
@@ -133,10 +158,9 @@ def plot(group_ids, x, ys, title, ylabel=None, time_unit='min', savefig=False, f
 	for group_id, color in zip(group_ids, colors[:len(group_ids)]):
 		group_line, = plt.plot(x, ys[group_id], color)
 		lines.append(group_line)
-		_ = plt.plot(x, ys[group_id], "%so" % color)
+		plt.plot(x, ys[group_id], "%so" % color)
 
 	plt.legend(lines, group_ids, loc=0)
-	plt.xticks(rotation=30)
 	plt.margins(0.02)
 	if savefig:
 		if filename is None:

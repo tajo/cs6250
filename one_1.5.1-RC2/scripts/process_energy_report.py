@@ -1,7 +1,7 @@
 import sys
 import os
 
-errtemplate = "Failed to create average energy report as "
+errtemplate = "Failed to create energy reports as "
 ENERGY_LEVEL_REPORT = "EnergyLevelReport"
 DEFAULT_SETTINGS_FILE = "default_settings.txt"
 
@@ -156,13 +156,13 @@ def process_file(filename):
 
     energy_level_report_number = def_reports[ENERGY_LEVEL_REPORT]
     if (energy_level_report_number not in reports.values() and
-        num_reports == -1 or energy_level_report_number <= num_reports):
+        (num_reports == -1 or energy_level_report_number <= num_reports)):
         return True, scenario_name
     return False, scenario_name
 
 def check_generate_energy_report(sysargs, write=True):
     # Find what scenario is used
-    args = [x for x in sysargs if x[-4:] == ".txt"]
+    args = [x for x in sysargs if x.endswith(".txt")]
     filename = DEFAULT_SETTINGS_FILE
     if len(args) == 1:
         filename = args[0]
