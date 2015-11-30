@@ -1,0 +1,20 @@
+Message stats for scenario Spray
+sim_time: 57600.0000
+created: 1953
+started: 9497
+relayed: 9456
+aborted: 41
+dropped: 7504
+removed: 0
+delivered: 596
+delivery_prob: 0.3052
+response_prob: 0.0000
+overhead_ratio: 14.8658
+latency_avg: 2355.3884
+latency_med: 1366.5000
+hopcount_avg: 2.3758
+hopcount_med: 2
+buffertime_avg: 17044.7362
+buffertime_med: 17936.5000
+rtt_avg: NaN
+rtt_med: NaN

@@ -1,0 +1,20 @@
+Message stats for scenario FirstContact
+sim_time: 57600.0000
+created: 1953
+started: 34823
+relayed: 34611
+aborted: 212
+dropped: 999
+removed: 34611
+delivered: 443
+delivery_prob: 0.2268
+response_prob: 0.0000
+overhead_ratio: 77.1287
+latency_avg: 4765.8950
+latency_med: 3389.5000
+hopcount_avg: 15.8781
+hopcount_med: 13
+buffertime_avg: 618.1779
+buffertime_med: 143.0000
+rtt_avg: NaN
+rtt_med: NaN
