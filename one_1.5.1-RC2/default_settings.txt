@@ -4,9 +4,9 @@
 
 ## Scenario settings
 Scenario.name = default_scenario
-# Scenario.name = [simulation1;simulation2;simulation3]
+#Scenario.name = [Direct;FirstContact;Epidemic;ProphetRouter;Spray]
 Scenario.simulateConnections = true
-Scenario.updateInterval = 0.1
+Scenario.updateInterval = 0.5
 # 57600s == 16h
 Scenario.endTime = 57600
 
@@ -61,8 +61,8 @@ Scenario.nrofHostGroups = 4
 
 # Common settings for all groups
 Group.movementModel = ShortestPathMapBasedMovement
-# Group.router = [EpidemicRouter;ProphetRouter;SprayAndWaitRouter]
-Group.router = EpidemicRouter
+#Group.router = [DirectDeliveryRouter;FirstContactRouter;EpidemicRouter;ProphetRouter;SprayAndWaitRouter]
+Group.router = SprayAndWaitRouter
 Group.bufferSize = 100M
 Group.waitTime = 0, 120
 # All nodes have thed bluetooth interface
@@ -96,6 +96,7 @@ Group.maxAfterShoppingStopTime = 7200
 ################################
 Group1.groupID = v
 Group1.nrofHosts = 30
+Group1.speed = 0.5,1
 Group1.waitTime = 0, 300
 
 # group2: bikers
@@ -104,7 +105,7 @@ Group2.groupID = b
 #bikes can drive only on roads
 Group2.okMaps = 1
 # 7.2-36 km/h
-Group2.speed = 2, 8
+Group2.speed = 2.5,3
 Group2.nrofHosts = 20
 Group2.movementModel = ShortestPathMapBasedMovement
 Group2.waitTime = 0, 60
@@ -118,7 +119,7 @@ Group3.waitTime = 0, 0
 Group3.movementModel = WorkingDayMovement
 
 Group3.busControlSystemNr = 3
-Group3.speed = 2,5
+Group3.speed = 0.5,1
 Group3.ownCarProb = 1
 Group3.shoppingControlSystemNr = 3
 Group3.meetingSpotsFile = data/gatech/A_meeting.wkt
@@ -129,11 +130,11 @@ Group3.homeLocationsFile = data/gatech/A_home.wkt
 ################################
 Group4.groupID = bus
 Group4.interface1 = busInterface
-Group4.nrofHosts = 6
+Group4.nrofHosts = 3
 Group4.movementModel = MapRouteMovement
 Group4.routeFile = data/gatech/red_bus.wkt
 Group4.routeType = 1
-Group4.speed = 5, 5
+Group4.speed = 4, 5
 Group4.waitTime = 0, 0
 
 ## Message creation parameters
@@ -148,13 +149,13 @@ Events1.interval = 25,35
 Events1.size = 0.5M,1M
 # range of message source/destination addresses (# addresses must be <=
 # total # of hosts across all groups)
-Events1.hosts = 0,105
+Events1.hosts = 0,102
 # Message ID prefix
 Events1.prefix = M
 
 ## Movement model settings
 # seed for movement models' pseudo random number generator (default = 0)
-MovementModel.rngSeed = 1
+MovementModel.rngSeed = 5
 # World's size for Movement Models without implicit size (width, height; meters)
 MovementModel.worldSize = 2200, 1600
 # How long time to move hosts in the world before real simulation
@@ -168,7 +169,7 @@ MapBasedMovement.mapFile1 = data/gatech/gatech.wkt
 ## Reports - all report names have to be valid report classes
 
 # how many reports to load
-Report.nrofReports = 4
+Report.nrofReports = 6
 # length of the warm up period (simulated seconds)
 Report.warmup = 0
 # default directory of reports (can be overridden per Report with output setting)
@@ -176,8 +177,11 @@ Report.reportDir = reports/
 # Report classes to load
 Report.report1 = MessageStatsReport
 Report.report2 = DeliveredMessagesReport
-Report.report3 = TotalContactTimeReport
+Report.report3 = MessageDelayReport
 Report.report4 = EnergyLevelReport
+Report.report5 = MessageDeliveryReport
+Report.report6 = MessageGraphvizReport
+
 
 ## Nodes report every 20 minutes
 EnergyLevelReport.granularity = 1200
