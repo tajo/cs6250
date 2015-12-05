@@ -3,5 +3,6 @@ reports/
 doc/
 !doc/create_docs.sh
 *.pyc
-*.fls
 *.DS_Store
+scripts/*.bak
+plots/*

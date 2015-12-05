@@ -98,10 +98,10 @@ def plot_avg_delivery_time(scenario_name, headers, body, savefigs):
 
 	plot(x, [y_wnd], "AVG delivery time (s) in a %s window" % wnd_str,
 		 savefig=savefigs, time_unit=time_unit,
-		 filename="%sAVG_DELIVERY_TIME_IN_WND" % scenario_name)
+		 filename="%s_AVG_DELIVERY_TIME_IN_WND" % scenario_name)
 	plot(x, [y_tot], "AVG delivery time (s)",
 		 savefig=savefigs, time_unit=time_unit,
-		 filename="%sAVG_DELIVERY_TIME" % scenario_name)
+		 filename="%s_AVG_DELIVERY_TIME" % scenario_name)
 
 def plot_tot_num_delivered_pkts(scenario_name, headers, body, savefigs):
 	# Plot vs hours
@@ -123,7 +123,7 @@ def plot_tot_num_delivered_pkts(scenario_name, headers, body, savefigs):
 		x = [t/60.0 for t in x]
 
 	plot(x, [y], "Total # packets delivered", savefig=savefigs,
-		 filename="%sTOTAL_NUM_DELIVERED_PKTS" % scenario_name)
+		 filename="%s_TOTAL_NUM_DELIVERED_PKTS" % scenario_name)
 
 def plot_pkt_delivery_rate(scenario_name, headers, body, savefigs):
 	# Plot vs hours
@@ -152,7 +152,7 @@ def plot_pkt_delivery_rate(scenario_name, headers, body, savefigs):
 
 	plot(x, [y], "Total # packets delivered in a %s window" % wnd_str,
 		 savefig=savefigs, time_unit=time_unit,
-		 filename="%sNUM_DELIVERED_PKTS_IN_WND" % scenario_name)
+		 filename="%s_NUM_DELIVERED_PKTS_IN_WND" % scenario_name)
 
 def plot_contact_time(scenario_name, settings_file, savefigs):
 	# Plot vs hours
@@ -203,11 +203,11 @@ def plot_contact_time(scenario_name, settings_file, savefigs):
 		x = [t/60.0 for t in x]
 
 	plot(x, [y_tot], "Total Contact Time (s)", savefig=savefigs,
-		 filename="%sTOTAL_CONTACT_TIME" % scenario_name,
+		 filename="%s_TOTAL_CONTACT_TIME" % scenario_name,
 		 time_unit=time_unit)
 
 	plot(x, [y_wnd], "Total Contact Time (s) in a %s window" % wnd_str,
-		 savefig=savefigs, filename="%sTOTAL_CONTACT_TIME" % scenario_name,
+		 savefig=savefigs, filename="%s_TOTAL_CONTACT_TIME" % scenario_name,
 		 time_unit=time_unit)
 
 def report_enabled(filename, report):
