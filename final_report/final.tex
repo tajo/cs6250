@@ -50,7 +50,7 @@ Email: \{miksu, gustav, dcarrington3, jychen, anjjan.narayan\}@gatech.edu}
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract} % Please feel free to edit this
-With the increasing use of mobile devices and vehicular networking, ad-hoc networking sees increasingly interesting applications. Since there are often no end-to-end connection at any given time, opportunistic networking is sometimes the best option in rural areas, during disaster relief, in certain military situations and more. We found that it would be valuable to compare prominent opportunistic networks protocols. We have done this using the ONE simulator and a map of the campus of Georgia Institute of Technology, and evaluated the schemes with regard to message delivery probability, energy efficiency, and more.
+With the increasing use of mobile devices and vehicular networking, ad-hoc networking sees increasingly interesting applications. Since there are often no end-to-end connections at any given time, opportunistic networking is sometimes the best option in rural areas, during disaster relief, in certain military situations and more. We found that it would be valuable to compare prominent opportunistic networks protocols. We have done this using the ONE simulator and a map of the campus of Georgia Institute of Technology, and evaluated the schemes with regard to message delivery probability, energy efficiency, and more.
 \end{abstract}
 
 % As a general rule, do not put math, special symbols or citations
@@ -66,7 +66,7 @@ The ONE; opportunistic networks; routing
 \section{Introduction}
 % no \IEEEPARstart
 
-With the increasing use of mobile devices such as smartphones, tablets and laptop computers that are connected wirelessly to a network, there arises a potential to use ad-hoc networks. Ad-hoc networks are the only option for some applications where various challenges such as intermittent connectivity and variable performance arise. In most cases these networks do not contain a path from source to destination.
+With the increasing use of mobile devices such as smart phones, tablets and laptop computers that are connected wirelessly to a network, there arises a potential to use ad-hoc networks. Ad-hoc networks are the only option for some applications where various challenges such as intermittent connectivity and variable performance arise. In most cases these networks do not contain a path from source to destination.
 
 Opportunistic network provides the perfect platform to improve the usability and connectivity of mobile devices that are on the go. Our work primarily focuses on opportunistic network protocols. As a part of our work, we compare the different protocols, their parameterization and ultimately come up with our proposal and implementation of enhancement to the protocols. During the study, we use The Opportunistic Networks Environment (The ONE) simulator \cite{keranen-theone} that was created at Helsinki University of Technology.
 
@@ -123,11 +123,11 @@ The ONE is a complex tool that enables a real-time simulation of delay-tolerant 
 
 \section{Opportunistic networks}
 
-In order to avoid the costly process of introducing cables into a building, or as a connection between various equipment locations, personal devices, telecommunication networks and business installations are moving to wireless networks. The devices such as smartphones, tablets and laptops are in constant movement from one location to another. There is no solid infrastructure or protocols that can manage this transition of devices from one location to another.
+In order to avoid the costly process of introducing cables into a building, or as a connection between various equipment locations, personal devices, telecommunication networks and business installations are moving to wireless networks. The devices such as smart phones, tablets and laptops are in constant movement from one location to another. There is no solid infrastructure or protocols that can manage this transition of devices from one location to another.
 
 During the last few years, ad hoc networks have been studied extensively and implemented on various application environments. As the application environments of these networks keep increasing, their traditional techniques and approaches need some improvements. One of the recent evolution in ad hoc networks is Mobile ad hoc networks (MANETs). Ad hoc networks also helps mobile nodes to reach infrastructure when some node in the network acts as a gateway. However, if the density of the nodes increases or the connection of a node in the network breaks, traditional network protocols would not be able to provide means for connection establishment and communication.
 
-Wireless network properties such as disconnection of nodes, mobility of users, and link instability cannot be handled in traditional networks. Opportunistic networks are created for mobile devices without relying on pre-existing topology. Opportunistic networks are the evolution of MANETs. In opportunistic networks, mobile nodes can communicate with each other even if a route connecting them doesn’t exist. Opportunistic networks consists of a variety of applications. Some of the applications include opportunistic computing, mobile data offloading, recommender systems etc. Opportunistic networks are created out of mobile devices carried by people, without relying on any existing network topology. In opportunistic network mobility is used as a technique to provide communication between disconnected nodes, rather than a drawback to be solved. Opportunistic networks can be useful for emergency broadcasts, vehicle-to-vehicle communication.
+Wireless network properties such as disconnection of nodes, mobility of users, and link instability cannot be handled in traditional networks. Opportunistic networks are created for mobile devices without relying on pre-existing topology. Opportunistic networks are the evolution of MANETs. In opportunistic networks, mobile nodes can communicate with each other even if a route connecting them does not exist. Opportunistic networks consists of a variety of applications. Some of the applications include opportunistic computing, mobile data offloading, recommender systems etc. Opportunistic networks are created out of mobile devices carried by people, without relying on any existing network topology. In opportunistic network mobility is used as a technique to provide communication between disconnected nodes, rather than a drawback to be solved. Opportunistic networks can be useful for emergency broadcasts, vehicle-to-vehicle communication.
 
 
 \section{The one simulator}
@@ -136,13 +136,9 @@ For the project, we are mainly working with the Opportunistic Network Simulator 
 
 Node movement is implemented using movement models which are either synthetic or movement traces. Nodes are connected based on their location, communication-range or bit-rate. The routing models decide which messages to forward over the existing connections. The messages are generated either through event generators (to generate random traffic between nodes) or through applications that generate traffic based on application interactions.
 
-\subsection{Measurement and logging support}
-
-Jag gillar OST.
-
 \section{Background map}
 
-The ONE simulator uses wkt format known as well-known text. It is a simple format for representing vector geometry objects. It is used for roads, buildings, routes and points of interest. The key piece of our simulation is a real world background map. The default option was a map of Helsinki. We have replaced it with a map of the Georgia Tech campus in Atlanta.
+The ONE simulator uses wkt format known as well-known text. It is a simple format for representing vector geometry objects. It is used for roads, buildings, routes and points of interest. The key piece of our simulation is a real world background map. The default option was a map of Helsinki. We have replaced it with a map of the Georgia Tech campus in Atlanta. You can see the result in figure \ref{fig_simulation}.
 
 \subsection{Map pre-processing}
 
@@ -153,11 +149,18 @@ The ONE simulator uses wkt format known as well-known text. It is a simple forma
   \item The world size defined by ONE configuration was updated to width 2200 meters and height 1600 meters in order to get proper scaling.
 \end{itemize}
 
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.5in]{simulation.png}
+\caption{Running simulation based on the Georgia Tech campus}
+\label{fig_simulation}
+\end{figure}
+
 \subsection{Bus route}
 
 \begin{itemize}
   \item To make our simulation more interesting we decided to introduce a special group of nodes - buses.
-  \item We focused on the GT red line bus since it’s the only one that stays in bounds of our campus and its route is similar to other lines.
+  \item We focused on the GT red line bus since it is the only one that stays in bounds of our campus and its route is similar to other lines.
   \item The program OpenJUMP was used for the route selection.
   \item Unfortunately, it exported out many fragmented routes that had to be connected by hand, so the bus can go in one and circular way
 \end{itemize}
@@ -232,7 +235,7 @@ Let us start with the core concerns of protocols, namely whether or not they are
   TODO generate delivery message probability chart (the one in the presentation) in PDF format! Then we can insert it here.
 }
 
-Above is a comparison of the delivery probability of all messages for the protocols we are considering. We see that Spray and Wait, Epidemic and Propet routing are distinguishing themselves from Direct and FirstContact routing by achieving more than five percentage points higher delivery probability. The difference between Spray and Wait, Epidemic and Prophet routing are only a few percentage points at most, so we would like to consider additional metrics to decide which protocol is better.
+Above is a comparison of the delivery probability of all messages for the protocols we are considering. We see that Spray and Wait, Epidemic and Prophet routing are distinguishing themselves from Direct and FirstContact routing by achieving more than five percentage points higher delivery probability. The difference between Spray and Wait, Epidemic and Prophet routing are only a few percentage points at most, so we would like to consider additional metrics to decide which protocol is better.
 
 {\color{red}
   TODO generate message delivery delay chart (the one in the presentation) in PDF format! Then we can insert it here. Also - should we change from number of packets to the percent of all packets that this protocol delivered? It would maybe be easier to compare distributions in that case. But maybe we should add both, because, why not.
@@ -273,7 +276,7 @@ Fig. \ref{fig:pkts_in_wnd:epidemic} shows the number of packets sent within the 
   \label{fig:pkts_in_wnd:snw}
 \end{figure}
 
-In fig. \ref{fig:pkts_in_wnd:snw} we see very similar peaks, in fact, although they seem to deviate slightly less from the average. But given that the energy consumptions are so different, it seems safe to conclude that Spray and Wait is more energy efficient. Let's have a look at the average energy comsumption when Prophet routing is used.
+In fig. \ref{fig:pkts_in_wnd:snw} we see very similar peaks, in fact, although they seem to deviate slightly less from the average. But given that the energy consumptions are so different, it seems safe to conclude that Spray and Wait is more energy efficient. Let's have a look at the average energy consumption when Prophet routing is used.
 
 \begin{figure}
   \includegraphics[scale=0.38, center]{../one_1.5.1-RC2/plots/ProphetRouter_AVG_ENERGY_CONSUMPTION.pdf}
@@ -281,7 +284,7 @@ In fig. \ref{fig:pkts_in_wnd:snw} we see very similar peaks, in fact, although t
   \label{fig:avg_consumpt:prophet}
 \end{figure}
 
-Interestingly enough, the students' energy consumption is flat in fig. \ref{fig:avg_consumpt:prophet}, while the visitors have peaks in roughly the same time periods as Epidemic routing had! Even with the peaks, though, the energy consumption of visitors and bikers is on average lower than that of Epidemic routing, and higher than with Spray and Wait. It seems like Spray and Wait and Prophet routing are good protools in our scenario, given that Prophet routing had slightly higher message delivery probability.
+Interestingly enough, the students' energy consumption is flat in fig. \ref{fig:avg_consumpt:prophet}, while the visitors have peaks in roughly the same time periods as Epidemic routing had! Even with the peaks, though, the energy consumption of visitors and bikers is on average lower than that of Epidemic routing, and higher than with Spray and Wait. It seems like Spray and Wait and Prophet routing are good protocols in our scenario, given that Prophet routing had slightly higher message delivery probability.
 
 Let's assess the energy consumptions of the protocols that struggled more in terms of message delivery probability, namely Direct routing and FirstContact routing.
 
