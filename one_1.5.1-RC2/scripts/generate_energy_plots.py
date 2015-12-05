@@ -166,7 +166,7 @@ def plot(group_ids, x, ys, title, ylabel=None, time_unit='min', savefig=False, f
 		if filename is None:
 			print "Ambiguous: asked to save figure but not given a filename. Fix this."
 			return
-		plt.savefig("%s%s" % (PLOTS_FILENAME_PREFIX, filename))
+		plt.savefig("%s%s.pdf" % (PLOTS_FILENAME_PREFIX, filename))
 	else:
 		if filename is not None:
 			print "Ambiguous: asked not to save figure but given a filename. Fix this."

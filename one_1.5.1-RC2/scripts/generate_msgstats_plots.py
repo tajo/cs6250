@@ -284,7 +284,7 @@ def plot(x, ys, title, ylabel=None, time_unit='s', savefig=False,
 			print ("Ambiguous: asked to save figure but not given a " +
 				   "filename. Fix this.")
 			return
-		plt.savefig("%s%s" % (PLOTS_FILENAME_PREFIX, filename))
+		plt.savefig("%s%s.pdf" % (PLOTS_FILENAME_PREFIX, filename))
 	else:
 		plt.show()
 
