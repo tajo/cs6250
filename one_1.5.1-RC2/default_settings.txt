@@ -4,7 +4,7 @@
 
 ## Scenario settings
 Scenario.name = default_scenario
-#Scenario.name = [Direct;FirstContact;Epidemic;ProphetRouter;Spray]
+#Scenario.name = [Direct;FirstContact;Epidemic;ProphetRouter;SprayAndWait]
 Scenario.simulateConnections = true
 Scenario.updateInterval = 0.5
 # 57600s == 16h
