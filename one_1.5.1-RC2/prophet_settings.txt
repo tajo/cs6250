@@ -1,6 +1,6 @@
 ## Test scenario using Prophet router and Points of Interest (POIs)
 
-Scenario.name = PRoPHET-%%ProphetRouter.secondsInTimeUnit%%siu
+Scenario.name = ProphetRouter
 Group.router = ProphetRouter
 
 ProphetRouter.secondsInTimeUnit = 30
