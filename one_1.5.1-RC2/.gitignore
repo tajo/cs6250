@@ -5,4 +5,3 @@ doc/
 *.pyc
 *.DS_Store
 scripts/*.bak
-plots/*
