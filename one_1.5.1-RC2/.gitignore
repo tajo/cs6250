@@ -4,3 +4,5 @@ doc/
 !doc/create_docs.sh
 *.pyc
 .DS_Store
+.fls
+.DS_Store
