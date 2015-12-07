@@ -2,8 +2,9 @@ import sys
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.backends.backend_pdf import PdfPages
 
-names = ['Direct', 'FirstContact', 'Prophetrouter', 'Spray', 'Epidemic']
+names = ['Direct', 'FirstContact', 'ProphetRouter', 'SprayAndWait', 'Epidemic']
 
 def get_fileName(prefix):
 	base_dir = os.path.join("..", "data_reports")
@@ -35,9 +36,10 @@ def get_all_numbers():
 
 def plot_message_del():
 	n_groups = 5
+	fig = plt.figure()
 	data = get_all_numbers()
 	index = np.arange(n_groups)
-	bar_width = 0.25
+	bar_width = 0.3
 	barlist = plt.bar(index, map(float, data.values()), bar_width,
                  color='b',align='center', alpha=0.7)
 	# barlist[0].set_color('r')
@@ -45,12 +47,15 @@ def plot_message_del():
 	# barlist[2].set_color('m')
 	# barlist[3].set_color('y')
 
-
 	plt.xlabel('Routers')
 	plt.ylabel('Delivered Probability')
 	plt.title('Delivered Probability Chart')
 	plt.xticks(index, data.keys())
 	plt.show()
+
+	pp = PdfPages('deliverd_prob.pdf')
+	pp.savefig(fig)
+	pp.close()
 
 
 plot_message_del()

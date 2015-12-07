@@ -198,9 +198,9 @@ Nodes are the vital part of our simulation. They are basic communication units t
 \hline
 Label & v & b & s & bus\\
 \hline
-Number & 30 & 20 & 50 & 6\\
+Number & 30 & 20 & 50 & 3\\
 \hline
-Speed km/h & 0.5 - 1.5 & 2 - 8 & 0.5 - 1.5 & 5\\
+Speed km/h & 0.5 - 1 & 2.5 - 3 & 0.5 - 1 & 4 - 5\\
 \hline
 Wait time s & 0 - 300 & 0 - 60 & 0 - 30 & 0\\
 \hline
@@ -231,31 +231,35 @@ After running simulations, processing with post-simulation scripts and generatin
 
 Let us start with the core concerns of protocols, namely whether or not they are good at delivering packets. The two main metrics we use to compare the protocols here is the probability that messages are delivered during the course of the day, and how long packets take to deliver, which we call they delay. Keep in mind that packets are created throughout the day rather than only at the beginning of day.
 
-{\color{red}
-  TODO generate delivery message probability chart (the one in the presentation) in PDF format! Then we can insert it here.
-}
+\begin{figure}
+  \includegraphics[scale=0.25, center]{../one_1.5.1-RC2/plots/delivered_prob.pdf}
+  \caption{Delivered Package Probability}
+  \label{fig:delivered_prob}
+\end{figure}
 
-Above is a comparison of the delivery probability of all messages for the protocols we are considering. We see that Spray and Wait, Epidemic and Prophet routing are distinguishing themselves from Direct and FirstContact routing by achieving more than five percentage points higher delivery probability. The difference between Spray and Wait, Epidemic and Prophet routing are only a few percentage points at most, so we would like to consider additional metrics to decide which protocol is better.
+\begin{figure}
+  \includegraphics[scale=0.4, center]{../one_1.5.1-RC2/plots/Delivery_Time_Distribution.pdf}
+  \caption{Delivery Time Distribution}
+  \label{fig:time_distribution}
+\end{figure}
 
-{\color{red}
-  TODO generate message delivery delay chart (the one in the presentation) in PDF format! Then we can insert it here. Also - should we change from number of packets to the percent of all packets that this protocol delivered? It would maybe be easier to compare distributions in that case. But maybe we should add both, because, why not.
-}
+Fig. \ref{fig:delivered_prob} is a comparison of the delivery probability of all messages for the protocols we are considering. We see that Spray and Wait, Epidemic and Prophet routing are distinguishing themselves from Direct and FirstContact routing by achieving more than five percentage points higher delivery probability. The difference between Spray and Wait, Epidemic and Prophet routing are only a few percentage points at most, so we would like to consider additional metrics to decide which protocol is better.
 
-Above are the distributions of delivery times, i.e. how long the delay was from creation to delivery of packets. {\color{red}TODO draw conclusions. But it's a bit tricky to see how Prophet/SprayAndWait/Epidemic fare against each other, maybe you guys understand this plot better than I do.}
+Fig. \ref{fig:time_distribution} shows the distributions of delivery time for each protocol. We can see from the chart that prophet routing has the best performance among all of the five protocols. Most of the delivered package can be transmitted to its destination within one hour.
 
 \subsection{Energy efficiency}
 
 Regarding energy efficiency, the ONE gives us the energy level of every node in a certain interval. In our simulations we have used 1200 second intervals, i.e. every 20 minutes of simulated time. We then process this information to generate statistics by node group over time, such as average energy consumption and average battery percentage remaining. Let us consider the average energy consumption of different node types under the protocols we consider.
 
 \begin{figure}
-  \includegraphics[scale=0.38, center]{../one_1.5.1-RC2/plots/SprayAndWait_AVG_ENERGY_CONSUMPTION.pdf}
+  \includegraphics[scale=0.25, center]{../one_1.5.1-RC2/plots/SprayAndWait_AVG_ENERGY_CONSUMPTION.pdf}
   \caption{Average energy consumption, Spray and Wait routing}
   \label{fig:avg_consumpt:snw}
 \end{figure}
 We see in fig. \ref{fig:avg_consumpt:snw} that while the buses have a relatively high energy consumption, the levels are stable for all groups over the whole simulation. Let's consider some other protocols to get an idea of how Spray and Wait compares to the other protocols.
 
 \begin{figure}
-  \includegraphics[scale=0.38, center]{../one_1.5.1-RC2/plots/Epidemic_AVG_ENERGY_CONSUMPTION.pdf}
+  \includegraphics[scale=0.25, center]{../one_1.5.1-RC2/plots/Epidemic_AVG_ENERGY_CONSUMPTION.pdf}
   \caption{Average energy consumption, Epidemic routing}
   \label{fig:avg_consumpt:epidemic}
 \end{figure}
@@ -263,7 +267,7 @@ We see in fig. \ref{fig:avg_consumpt:snw} that while the buses have a relatively
 With Epidemic routing, in fig. \ref{fig:avg_consumpt:epidemic}, energy consumption reaches higher levels for both visitors and bikers, with occasional peaks in the energy consumption of the students. How come we see these peaks? Let's take a look at the amount of packets that are being sent.
 
 \begin{figure}
-  \includegraphics[scale=0.38, center]{../one_1.5.1-RC2/plots/Epidemic_NUM_DELIVERED_PKTS_IN_WND.pdf}
+  \includegraphics[scale=0.25, center]{../one_1.5.1-RC2/plots/Epidemic_NUM_DELIVERED_PKTS_IN_WND.pdf}
   \caption{Number of packets delivered in the last hour, Epidemic routing}
   \label{fig:pkts_in_wnd:epidemic}
 \end{figure}
@@ -271,7 +275,7 @@ With Epidemic routing, in fig. \ref{fig:avg_consumpt:epidemic}, energy consumpti
 Fig. \ref{fig:pkts_in_wnd:epidemic} shows the number of packets sent within the last hour, at any point in time, when Epidemic routing is used. We see some peaks that we can link to the two peaks that we saw in the students' energy consumption! But what about Spray and Wait, why are there no peaks in their energy consumption?
 
 \begin{figure}
-  \includegraphics[scale=0.38, center]{../one_1.5.1-RC2/plots/SprayAndWait_NUM_DELIVERED_PKTS_IN_WND.pdf}
+  \includegraphics[scale=0.25, center]{../one_1.5.1-RC2/plots/SprayAndWait_NUM_DELIVERED_PKTS_IN_WND.pdf}
   \caption{Number of packets delivered in the last hour, Spray and Wait routing}
   \label{fig:pkts_in_wnd:snw}
 \end{figure}
@@ -279,7 +283,7 @@ Fig. \ref{fig:pkts_in_wnd:epidemic} shows the number of packets sent within the 
 In fig. \ref{fig:pkts_in_wnd:snw} we see very similar peaks, in fact, although they seem to deviate slightly less from the average. But given that the energy consumptions are so different, it seems safe to conclude that Spray and Wait is more energy efficient. Let's have a look at the average energy consumption when Prophet routing is used.
 
 \begin{figure}
-  \includegraphics[scale=0.38, center]{../one_1.5.1-RC2/plots/ProphetRouter_AVG_ENERGY_CONSUMPTION.pdf}
+  \includegraphics[scale=0.25, center]{../one_1.5.1-RC2/plots/ProphetRouter_AVG_ENERGY_CONSUMPTION.pdf}
   \caption{Average energy consumption, Prophet routing}
   \label{fig:avg_consumpt:prophet}
 \end{figure}
@@ -289,7 +293,7 @@ Interestingly enough, the students' energy consumption is flat in fig. \ref{fig:
 Let's assess the energy consumptions of the protocols that struggled more in terms of message delivery probability, namely Direct routing and FirstContact routing.
 
 \begin{figure}
-  \includegraphics[scale=0.38, center]{../one_1.5.1-RC2/plots/Direct_AVG_ENERGY_CONSUMPTION.pdf}
+  \includegraphics[scale=0.25, center]{../one_1.5.1-RC2/plots/Direct_AVG_ENERGY_CONSUMPTION.pdf}
   \caption{Average energy consumption, Direct routing}
   \label{fig:avg_consumpt:direct}
 \end{figure}
@@ -297,7 +301,7 @@ Let's assess the energy consumptions of the protocols that struggled more in ter
 We see in fig. \ref{fig:avg_consumpt:direct} that Direct routing's performance in terms of energy consumption. As it turns out, this is the least energy consuming protocol that we consider - the visitors and bikers are slightly lower than with Spray and Wait.
 
 \begin{figure}
-  \includegraphics[scale=0.38, center]{../one_1.5.1-RC2/plots/FirstContact_AVG_ENERGY_CONSUMPTION.pdf}
+  \includegraphics[scale=0.25, center]{../one_1.5.1-RC2/plots/FirstContact_AVG_ENERGY_CONSUMPTION.pdf}
   \caption{Average energy consumption, FirstContact routing}
   \label{fig:avg_consumpt:firstcontact}
 \end{figure}

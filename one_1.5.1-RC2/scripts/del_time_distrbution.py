@@ -2,8 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import json
+from matplotlib.backends.backend_pdf import PdfPages
 
-names = ['Direct', 'FirstContact', 'Prophetrouter', 'Spray', 'Epidemic']
+names = ['Direct', 'FirstContact', 'ProphetRouter', 'SprayAndWait', 'Epidemic']
 
 def get_fileName(prefix):
 	base_dir = os.path.join("..", "data_reports")
@@ -32,7 +33,6 @@ def get_distime(data, name):
 
 def plot_distribution():
 	data = get_data()
-
 	# name = names[2]
 	# dis_time = get_distime(data, name)
 	# # dis_time = []
@@ -45,7 +45,7 @@ def plot_distribution():
 
 
 	# # plt.show()
-	fig = plt.figure()
+	fig = plt.figure(figsize=(8, 10))
 	ax = fig.add_subplot(111)
 	ax1 = fig.add_subplot(511)
 	ax2 = fig.add_subplot(512)
@@ -72,7 +72,7 @@ def plot_distribution():
 		# funcList[i].ylabel('Number of Instance')
 		# funcList[i].title('Delivery Time Distribution')
 		funcList[i].axis([0, 4000, 0, 130])
-		funcList[i].text(3000, 50, name, fontsize=15)
+		funcList[i].text(3000, 50, name, fontsize=12)
 		funcList[i].grid(True)
 
 	ax.set_ylabel('Number of Messages')
@@ -80,8 +80,9 @@ def plot_distribution():
 
 	plt.show()
 
-
-
+	pp = PdfPages('Delivery_Time_Distribution.pdf')
+	pp.savefig(fig)
+	pp.close()
 
 
 
