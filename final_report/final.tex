@@ -130,6 +130,32 @@ During the last few years, ad hoc networks have been studied extensively and imp
 Wireless network properties such as disconnection of nodes, mobility of users, and link instability cannot be handled in traditional networks. Opportunistic networks are created for mobile devices without relying on pre-existing topology. Opportunistic networks are the evolution of MANETs. In opportunistic networks, mobile nodes can communicate with each other even if a route connecting them does not exist. Opportunistic networks consists of a variety of applications. Some of the applications include opportunistic computing, mobile data offloading, recommender systems etc. Opportunistic networks are created out of mobile devices carried by people, without relying on any existing network topology. In opportunistic network mobility is used as a technique to provide communication between disconnected nodes, rather than a drawback to be solved. Opportunistic networks can be useful for emergency broadcasts, vehicle-to-vehicle communication.
 
 
+
+\section{Opportunistic Network Protocols}
+Routing protocols in opportunistic networks are based on the ability to transfer data or message from source to destination. Opportunistic networks are characterized based on lack of connectivity between the nodes and lack of direct end-to-end paths. Routing protocols are designed to handle these exceptions. There are various opportunistic network routing protocols. For our experiment, we have used the following protocols.
+
+\subsection{Epidemic Routing}  
+Epidemic routing [reference added to ref.bib] is a subclass of flooding. In this protocol nodes replicate the message in a continuous manner and transmit the message to the nodes that are newly discovered. The message is transferred to the newly discovered nodes only if the new node does not already have the message. There are various methods that can be used to limit the number of replications in the network. Epidemic routing provides delivery of the message to random destinations with minimum assumption of the network connectivity. The final delivery of the message depends on the connectivity of the nodes. 
+
+Epidemic routing works on the theory of epidemic algorithms. The host contains two buffers to store the messages that it originated and the messages that it is buffering on behalf of other hosts. There is also a summary vector in each hosts that describes the order of messages in the stored buffer. When two hosts are in contact, they exchange their summary vector to check if the new message already exists. If not, the message is transferred. 
+
+In our implementation of epidemic routing protocol, we have used drop-oldest buffer technique. When the buffer is full, the oldest message is dropped to accommodate the new message. Also, the protocol uses single transferring connection at a time. 
+
+\subsection{PRoPHET Routing}
+Probabilistic Routing Protocol using History of Encounters and Transitivity (PRoPHET) [ reference in ref.bib third item]makes use of an assumption that If a user has visited a location several times before, there is more probability to visit that location again. Unlike epidemic routing, PRoPHET assumes that nodes move in a periodic fashion. PRoPHET uses an algorithm to exploit this periodic movement of nodes by assigning a set of probabilities for successful delivery to a known destination. It also replicates the message during opportunistic encounter only if the node that doesn't have the message has a better chance of delivering it.     
+
+\subsection{Spray and Wait Protocol}
+The main idea behind spray and wait protocol [ reference in ref.bib fourth item] is that it achieves resource efficiency by setting a threshold value on the number of copies of a message allowed in a network.
+As the name suggests, spray and wait contains two phases, the spray phase and the wait phase. Everytime a new message is created in the system, a number X is attached to the message. X indicates the maximum number of copies of the message that is allowed in the network. In the spray phase, the host node sprays one copy of the message to X nodes in the network. When a node receives the message, it enters the wait phase. In the wait phase the node waits until it achieves direct communication with the destination. Once it does, it sends the copy of the message to the destination node.   
+
+\subsection{Direct Routing Protocol}
+Direct routing protocol is a simple protocol that is based on direct contact between the source and the destination node. The source node which generates the message will transmit the message to the destination node only if there is a direct connection between source and destination. The message will not pass through intermediate nodes. 
+
+\subsection{First Contact Protocol}
+First contact protocol is another simple protocol which is based on nodes that are first contact to the host node. The host node generates a single copy of the message. This single copy is sent across all the nodes and no other copies are made. A source node will send the copy of the message to the nodes that is a first available contact to the host node. Similar pattern is followed by other nodes until the message reaches the destination node. 
+
+
+
 \section{The one simulator}
 
 For the project, we are mainly working with the Opportunistic Network Simulator (ONE). ONE is an event simulation engine which is used to model node movement, inter-node connections using various interfaces, routing, message handling and application interactions. The simulator also provides tools for visualization, reports and post-processing tools.

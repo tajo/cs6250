@@ -1,0 +1,12 @@
+@inproceedings{keranen-theone,
+ author = {Ari Ker\"{a}nen and J\"{o}rg Ott and Teemu K\"{a}rkk\"{a}inen},
+ title = {{The ONE Simulator for DTN Protocol Evaluation}},
+ booktitle = {SIMUTools '09: Proceedings of the 2nd International Conference on Simulation Tools and Techniques},
+ year = {2009},
+ isbn = {978-963-9799-45-5},
+ pages = {},
+ location = {Rome, Italy},
+ doi = {},
+ publisher = {ICST},
+ address = {New York, NY, USA},
+}
