@@ -269,9 +269,9 @@ Let us start with the core concerns of protocols, namely whether or not they are
   \label{fig:time_distribution}
 \end{figure}
 
-Fig. \ref{fig:delivered_prob} is a comparison of the delivery probability of all messages for the protocols we are considering. We see that Spray and Wait, Epidemic and Prophet routing are distinguishing themselves from Direct and FirstContact routing by achieving more than five percentage points higher delivery probability. The difference between Spray and Wait, Epidemic and Prophet routing are only a few percentage points at most, so we would like to consider additional metrics to decide which protocol is better.
+Fig. \ref{fig:delivered_prob} is a comparison of the delivery probability of all messages for the protocols we are considering. We see that Spray and Wait, Epidemic and PRoPHET routing are distinguishing themselves from Direct and FirstContact routing by achieving more than five percentage points higher delivery probability. The difference between Spray and Wait, Epidemic and PRoPHET routing are only a few percentage points at most, so we would like to consider additional metrics to decide which protocol is better.
 
-Fig. \ref{fig:time_distribution} shows the distributions of delivery time for each protocol. We can see from the chart that prophet routing has the best performance among all of the five protocols. Most of the delivered package can be transmitted to its destination within one hour.
+Fig. \ref{fig:time_distribution} shows the distributions of delivery time for each protocol. We can see from the chart that PRoPHET routing has the best performance among all of the five protocols. Most of the delivered package can be transmitted to its destination within one hour.
 
 \subsection{Energy efficiency}
 
@@ -306,15 +306,15 @@ Fig. \ref{fig:pkts_in_wnd:epidemic} shows the number of packets sent within the 
   \label{fig:pkts_in_wnd:snw}
 \end{figure}
 
-In fig. \ref{fig:pkts_in_wnd:snw} we see very similar peaks, in fact, although they seem to deviate slightly less from the average. But given that the energy consumptions are so different, it seems safe to conclude that Spray and Wait is more energy efficient. Let's have a look at the average energy consumption when Prophet routing is used.
+In fig. \ref{fig:pkts_in_wnd:snw} we see very similar peaks, in fact, although they seem to deviate slightly less from the average. But given that the energy consumptions are so different, it seems safe to conclude that Spray and Wait is more energy efficient. Let's have a look at the average energy consumption when PRoPHET routing is used.
 
 \begin{figure}
   \includegraphics[scale=0.25, center]{../one_1.5.1-RC2/plots/ProphetRouter_AVG_ENERGY_CONSUMPTION.pdf}
-  \caption{Average energy consumption, Prophet routing}
+  \caption{Average energy consumption, PRoPHET routing}
   \label{fig:avg_consumpt:prophet}
 \end{figure}
 
-Interestingly enough, the students' energy consumption is flat in fig. \ref{fig:avg_consumpt:prophet}, while the visitors have peaks in roughly the same time periods as Epidemic routing had! Even with the peaks, though, the energy consumption of visitors and bikers is on average lower than that of Epidemic routing, and higher than with Spray and Wait. It seems like Spray and Wait and Prophet routing are good protocols in our scenario, given that Prophet routing had slightly higher message delivery probability.
+Interestingly enough, the students' energy consumption is flat in fig. \ref{fig:avg_consumpt:prophet}, while the visitors have peaks in roughly the same time periods as Epidemic routing had! Even with the peaks, though, the energy consumption of visitors and bikers is on average lower than that of Epidemic routing, and higher than with Spray and Wait. It seems like Spray and Wait and PRoPHET routing are good protocols in our scenario, given that PRoPHET routing had slightly higher message delivery probability.
 
 Let's assess the energy consumptions of the protocols that struggled more in terms of message delivery probability, namely Direct routing and FirstContact routing.
 
@@ -332,18 +332,18 @@ We see in fig. \ref{fig:avg_consumpt:direct} that Direct routing's performance i
   \label{fig:avg_consumpt:firstcontact}
 \end{figure}
 
-We see in fig. \ref{fig:avg_consumpt:firstcontact} that with FirstContact routing the consumption is lower and more stable than using Epidemic or Prophet routing, but not quite as good as Direct or Spray and Wait routing. Still, this is not a large difference from them by any means, and thus FirstContact is also a protocol that consumes a bit less energy.\\
+We see in fig. \ref{fig:avg_consumpt:firstcontact} that with FirstContact routing the consumption is lower and more stable than using Epidemic or PRoPHET routing, but not quite as good as Direct or Spray and Wait routing. Still, this is not a large difference from them by any means, and thus FirstContact is also a protocol that consumes a bit less energy.\\
 %
 %{\color{red}
 %  TODO more analysis, else write some conclusions? %Maybe as below:
 %}
 
-From our findings in this section, it seems like Prophet routing and Spray and Wait are the best choices in our scenario. Prophet routing provides slightly higher message delivery probability at a cost of slightly higher and less consistent energy consumption than that of Spray and Wait. Which protocol would be best is simply a matter or what is most important in a given application - slightly longer battery time, or higher probability that a message arrives during the day it was created.
+From our findings in this section, it seems like PRoPHET routing and Spray and Wait are the best choices in our scenario. PRoPHET routing provides slightly higher message delivery probability at a cost of slightly higher and less consistent energy consumption than that of Spray and Wait. Which protocol would be best is simply a matter or what is most important in a given application - slightly longer battery time, or higher probability that a message arrives during the day it was created.
 
 \section{CONCLUSION}
-In this project, we compared five opportunistic routing protocols working on Georgia Institute of Technology skitter map. We used epidemic routing protocol, spray and wait routing protocol, PRoPHET routing protocol, direct routing protocol and first contact protocol. We built scenarios for nodes based on some characteristics of communication on campus. The experiments were run on various scenarios that we defined. Based on the scenarios, we have drawn conclusions based on energy consumption, message delivery probability and also which protocol works the best in which scenario. We found that PRoPHET routing protocol has the best message delivery performance when compared to all the other protocols. Also, with regards to energy consumption, direct routing protocol works the best with exceptions in visitors and bike scenario where Spray and Wait protocol performs better. 
+In this project, we compared five opportunistic routing protocols by simulating them on the Georgia Institute of Technology map. We used the Epidemic, Spray and Wait, PRoPHET, Direct and First Contact routing protocols. We created different nodes based on some characteristics of communication and movement on campus. The experiments were executed on a scenario that we defined. Based on the scenario, we have drawn conclusions based on energy consumption for different node groups, message delivery probability and finally which protocols work well overall in this scenario. We found that PRoPHET has the highest message delivery probability of all the protocols. Direct routing has the lowest energy consumption, however, Spray and Wait has significantly higher message delivery probability, making it an overall better protocol for this scenario. The results boil down to a tradeoff between message delivery probability, where PRoPHET is the winner, and energy efficiency, since Spray and Wait has lower energy consumption for visitors and bikers while maintaining a similar overall message delivery probability. These are the opportunistic protocols that performed the best in our simulations.
 
-From this project, we gathered a lot of information on how opportunistic routing protocols works along with their implementation. The ONE simulator helped in better understanding the working of the protocols. Also, we were able to design our own scenarios which better explained several concepts.  
+From this project, we gathered a lot of information on how opportunistic routing protocols works along with their implementation. The ONE simulator helped in better understanding the working of the protocols. Also, we were able to design our own scenarios which better explained several concepts.
 
 % conference papers do not normally have an appendix
 
