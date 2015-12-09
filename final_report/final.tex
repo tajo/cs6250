@@ -68,7 +68,7 @@ The ONE; opportunistic networks; routing
 
 With the increasing use of mobile devices such as smart phones, tablets and laptop computers that are connected wirelessly to a network, there arises a potential to use ad-hoc networks. Ad-hoc networks are the only option for some applications where various challenges such as intermittent connectivity and variable performance arise. In most cases these networks do not contain a path from source to destination.
 
-Opportunistic network provides the perfect platform to improve the usability and connectivity of mobile devices that are on the go. Our work primarily focuses on opportunistic network protocols. As a part of our work, we compare the different protocols, their parameterization and ultimately come up with our proposal and implementation of enhancement to the protocols. During the study, we use The Opportunistic Networks Environment (The ONE) simulator \cite{keranen-theone} that was created at Helsinki University of Technology.
+Opportunistic network provides the perfect platform to improve the usability and connectivity of mobile devices that are on the go. Our work primarily focuses on opportunistic network protocols. As a part of our work, we compare the different protocols, their parameterization and ultimately come up with our proposal and implementation of enhancement to the protocols. During the study, we use The Opportunistic Networks Environment (The ONE) simulator \cite{keranen-theone}was created at Helsinki University of Technology.
 
 The ONE is a complex tool that enables a real-time simulation of delay-tolerant networks. It implements various existing protocols and provides an interface to create and test new ones. It is also possible to use different map backgrounds since opportunistic networks are heavily related to a real-world routes. We use a map of Georgia Tech in Atlanta.
 
@@ -135,17 +135,17 @@ Wireless network properties such as disconnection of nodes, mobility of users, a
 Routing protocols in opportunistic networks are based on the ability to transfer data or message from source to destination. Opportunistic networks are characterized based on lack of connectivity between the nodes and lack of direct end-to-end paths. Routing protocols are designed to handle these exceptions. There are various opportunistic network routing protocols. For our experiment, we have used the following protocols.
 
 \subsection{Epidemic Routing}  
-Epidemic routing [reference added to ref.bib] is a subclass of flooding. In this protocol nodes replicate the message in a continuous manner and transmit the message to the nodes that are newly discovered. The message is transferred to the newly discovered nodes only if the new node does not already have the message. There are various methods that can be used to limit the number of replications in the network. Epidemic routing provides delivery of the message to random destinations with minimum assumption of the network connectivity. The final delivery of the message depends on the connectivity of the nodes. 
+Epidemic routing \cite{epidemic} is a subclass of flooding. In this protocol nodes replicate the message in a continuous manner and transmit the message to the nodes that are newly discovered. The message is transferred to the newly discovered nodes only if the new node does not already have the message. There are various methods that can be used to limit the number of replications in the network. Epidemic routing provides delivery of the message to random destinations with minimum assumption of the network connectivity. The final delivery of the message depends on the connectivity of the nodes. 
 
 Epidemic routing works on the theory of epidemic algorithms. The host contains two buffers to store the messages that it originated and the messages that it is buffering on behalf of other hosts. There is also a summary vector in each hosts that describes the order of messages in the stored buffer. When two hosts are in contact, they exchange their summary vector to check if the new message already exists. If not, the message is transferred. 
 
 In our implementation of epidemic routing protocol, we have used drop-oldest buffer technique. When the buffer is full, the oldest message is dropped to accommodate the new message. Also, the protocol uses single transferring connection at a time. 
 
 \subsection{PRoPHET Routing}
-Probabilistic Routing Protocol using History of Encounters and Transitivity (PRoPHET) [ reference in ref.bib third item]makes use of an assumption that If a user has visited a location several times before, there is more probability to visit that location again. Unlike epidemic routing, PRoPHET assumes that nodes move in a periodic fashion. PRoPHET uses an algorithm to exploit this periodic movement of nodes by assigning a set of probabilities for successful delivery to a known destination. It also replicates the message during opportunistic encounter only if the node that doesn't have the message has a better chance of delivering it.     
+Probabilistic Routing Protocol using History of Encounters and Transitivity (PRoPHET) \cite{prob} makes use of an assumption that If a user has visited a location several times before, there is more probability to visit that location again. Unlike epidemic routing, PRoPHET assumes that nodes move in a periodic fashion. PRoPHET uses an algorithm to exploit this periodic movement of nodes by assigning a set of probabilities for successful delivery to a known destination. It also replicates the message during opportunistic encounter only if the node that doesn't have the message has a better chance of delivering it.     
 
 \subsection{Spray and Wait Protocol}
-The main idea behind spray and wait protocol [ reference in ref.bib fourth item] is that it achieves resource efficiency by setting a threshold value on the number of copies of a message allowed in a network.
+The main idea behind spray and wait protocol \cite{spray} is that it achieves resource efficiency by setting a threshold value on the number of copies of a message allowed in a network.
 As the name suggests, spray and wait contains two phases, the spray phase and the wait phase. Everytime a new message is created in the system, a number X is attached to the message. X indicates the maximum number of copies of the message that is allowed in the network. In the spray phase, the host node sprays one copy of the message to X nodes in the network. When a node receives the message, it enters the wait phase. In the wait phase the node waits until it achieves direct communication with the destination. Once it does, it sends the copy of the message to the destination node.   
 
 \subsection{Direct Routing Protocol}
@@ -333,11 +333,17 @@ We see in fig. \ref{fig:avg_consumpt:direct} that Direct routing's performance i
 \end{figure}
 
 We see in fig. \ref{fig:avg_consumpt:firstcontact} that with FirstContact routing the consumption is lower and more stable than using Epidemic or Prophet routing, but not quite as good as Direct or Spray and Wait routing. Still, this is not a large difference from them by any means, and thus FirstContact is also a protocol that consumes a bit less energy.\\
+%
+%{\color{red}
+%  TODO more analysis, else write some conclusions? %Maybe as below:
+%}
 
-{\color{red}
-  TODO more analysis, else write some conclusions? Maybe as below:
-}
 From our findings in this section, it seems like Prophet routing and Spray and Wait are the best choices in our scenario. Prophet routing provides slightly higher message delivery probability at a cost of slightly higher and less consistent energy consumption than that of Spray and Wait. Which protocol would be best is simply a matter or what is most important in a given application - slightly longer battery time, or higher probability that a message arrives during the day it was created.
+
+\section{CONCLUSION}
+In this project, we compared five opportunistic routing protocols working on Georgia Institute of Technology skitter map. We used epidemic routing protocol, spray and wait routing protocol, PRoPHET routing protocol, direct routing protocol and first contact protocol. We built scenarios for nodes based on some characteristics of communication on campus. The experiments were run on various scenarios that we defined. Based on the scenarios, we have drawn conclusions based on energy consumption, message delivery probability and also which protocol works the best in which scenario. We found that PRoPHET routing protocol has the best message delivery performance when compared to all the other protocols. Also, with regards to energy consumption, direct routing protocol works the best with exceptions in visitors and bike scenario where Spray and Wait protocol performs better. 
+
+From this project, we gathered a lot of information on how opportunistic routing protocols works along with their implementation. The ONE simulator helped in better understanding the working of the protocols. Also, we were able to design our own scenarios which better explained several concepts.  
 
 % conference papers do not normally have an appendix
 
@@ -346,8 +352,24 @@ From our findings in this section, it seems like Prophet routing and Spray and W
 
 We would like to show our gratitude to Dr. Mostafa Ammar, Georgia Tech for sharing his pearls of wisdom with us during the Computer Networks course and his guidance received while working on this project.
 
-\bibliographystyle{unsrtnat}
-\bibliography{refs}
+
+\begin{thebibliography}{1}
+\bibitem{keranen-theone}
+KERANEN, A., OTT, J., AND KARKKAINEN, T. The ONE simulator for DTN protocol evaluation. \emph{In Simutools ’09: Proceedings of the 2nd International Conference on Simulation Tools and Techniques (2009)}, ICST (Institute for Computer Sciences, Social-Informatics and Telecommunications Engineering), pp. 1–10.
+
+\bibitem{epidemic}
+A. Vahdat and D. Becker. Epidemic routing for partially connected ad hoc networks. Technical report, Apr. 2000. Technical Report CS-200006, Duke University. 
+
+\bibitem{spray}
+T. Spyropoulos, K. Psounis and C. Raghavendra.Spray and Wait: An Efficient Routing Scheme for Intermittently Connected Mobile Networks, \emph{Proc. ACM Special Interest Group Data Comm. Workshop Delay-Tolerant Networking (WDTN ',05)}, 2005. 
+\bibitem{prob}
+A. Lindgren, A. Doria, and O. Scheln.   Probabilistic Routing in Intermittently Connected Networks. In\emph{
+Proc. Workshop on Service
+Assurance with Partial and Intermittent Resources
+}, August 2004
+\end{thebibliography}
+%\bibliographystyle{unsrtnat}
+%\bibliography{refs}
 
 % that's all folks
 \end{document}
